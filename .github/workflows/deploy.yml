@@ -21,6 +21,11 @@ jobs:
       # Project page, so the site is served from a sub-path.
       # Delete this once a custom domain points at the repo root.
       NEXT_PUBLIC_BASE_PATH: /rand-eye-institute
+      # GoHighLevel workflow Inbound Webhook URL.
+      # Repo → Settings → Secrets and variables → Actions → LEAD_WEBHOOK_URL.
+      # Static site, so this ends up in the client bundle either way — the
+      # secret just keeps it out of the source. Never put a GHL API token here.
+      NEXT_PUBLIC_LEAD_WEBHOOK: ${{ secrets.LEAD_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

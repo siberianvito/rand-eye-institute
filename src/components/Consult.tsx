@@ -2,15 +2,9 @@
 
 import { useState } from "react";
 import { practice, signatureProcedures } from "@/lib/data";
+import { submitLead } from "@/lib/leads";
 import Reveal from "./Reveal";
 import { IconCheck, IconPhone, IconShield } from "./Icons";
-
-/**
- * TODO (pre-launch): replace with the practice's own inbox and confirm the
- * address once from FormSubmit's activation email. Until then submissions
- * will not be delivered.
- */
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/YOUR-EMAIL@randeye.com";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -23,15 +17,19 @@ export default function Consult() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // Honeypot: a real person never fills a field they cannot see. Pretend to
+    // succeed so the bot does not learn to retry, but send nothing.
+    if (String(data.get("_honey") ?? "").length > 0) {
+      setStatus("sent");
+      return;
+    }
+
     setStatus("sending");
 
     try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
-      });
-      if (!res.ok) throw new Error(String(res.status));
+      await submitLead(data);
       setStatus("sent");
       form.reset();
     } catch {
@@ -133,7 +131,7 @@ export default function Consult() {
                     We reply within one business day.
                   </p>
 
-                  {/* Honeypot */}
+                  {/* Honeypot — hidden from people, irresistible to bots */}
                   <input
                     type="text"
                     name="_honey"
@@ -141,11 +139,6 @@ export default function Consult() {
                     autoComplete="off"
                     className="absolute h-0 w-0 opacity-0"
                     aria-hidden
-                  />
-                  <input
-                    type="hidden"
-                    name="_subject"
-                    value="New consultation request — randeye.com"
                   />
 
                   <div className="mt-8 grid gap-5 sm:grid-cols-2">
