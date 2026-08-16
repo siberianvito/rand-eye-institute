@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { additionalServices, navLinks, practice, signatureProcedures, years } from "@/lib/data";
-import { IconPhone, IconPin } from "./Icons";
+import { additionalServices, legalLinks, navLinks, practice, signatureProcedures, years } from "@/lib/data";
+import { IconPhone, IconPin, IconShield } from "./Icons";
 import Wordmark from "./Wordmark";
 
 export default function Footer() {
@@ -106,7 +106,41 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/12 pt-8 text-[0.85rem] text-white/60 md:flex-row md:items-center md:justify-between">
+        {/* Policies */}
+        <nav
+          aria-label="Legal and policies"
+          className="mt-14 border-t border-white/12 pt-8"
+        >
+          <ul className="flex flex-wrap gap-x-7 gap-y-3 text-[0.85rem]">
+            {legalLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-white/70 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-5 flex items-start gap-2.5 text-[0.85rem] text-white/60">
+            <IconShield className="mt-0.5 h-4.5 w-4.5 shrink-0 text-cyan-brand" />
+            <span>
+              We are a HIPAA-covered health care provider. Your health
+              information is handled under our{" "}
+              <Link
+                href="/hipaa-notice"
+                className="font-semibold text-white underline underline-offset-4 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+              >
+                Notice of Privacy Practices
+              </Link>
+              . Please do not send clinical details through this website.
+            </span>
+          </p>
+        </nav>
+
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/12 pt-8 text-[0.85rem] text-white/60 md:flex-row md:items-start md:justify-between">
           <p>
             © {year} {practice.name}. {practice.tagline}
             <sup>®</sup>

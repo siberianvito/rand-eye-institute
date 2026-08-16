@@ -356,6 +356,109 @@
 .iris-b { animation: iris-drift-alt 28s var(--ease-out-soft) infinite; }
 .iris-c { animation: iris-pulse 9s ease-in-out infinite; }
 
+/* ---------- Reader preferences (accessibility toolbar) ----------
+   Applied as data attributes on <html> so every rule below is a plain CSS
+   cascade — no JavaScript rewriting the DOM, which is what makes third-party
+   overlays so fragile with real screen readers. */
+html[data-text-size="large"] { font-size: 112.5%; }
+html[data-text-size="larger"] { font-size: 125%; }
+
+html[data-contrast="high"] {
+  --color-surface: #ffffff;
+  --color-surface-tint: #f2f6fb;
+  --color-surface-deep: #e4ecf5;
+  --color-card: #ffffff;
+  --color-ink: #000000;
+  --color-ink-soft: #10203a;
+  --color-slate-body: #1f2d3d;
+  --color-grey-brand: #33475b;
+  --color-line: #7d93aa;
+  --color-line-strong: #405a75;
+}
+
+html[data-contrast="high"] .brand-text-gradient,
+html[data-contrast="high"] .brand-text-gradient-dark {
+  background-image: none;
+  color: var(--color-blue-brand);
+}
+
+html[data-contrast="high"] .iris-eye,
+html[data-contrast="high"] .iris-a,
+html[data-contrast="high"] .iris-b,
+html[data-contrast="high"] .iris-c {
+  display: none;
+}
+
+html[data-underline-links="on"] :where(main, footer) a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Mirrors the media query below, but driven by the toolbar toggle. */
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+html[data-motion="reduced"] .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ---------- Long-form legal copy ---------- */
+.legal-prose {
+  color: var(--color-slate-body);
+  max-width: 68ch;
+}
+
+.legal-prose h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.875rem;
+  font-size: 1.75rem;
+  color: var(--color-ink);
+}
+
+.legal-prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--color-ink);
+}
+
+.legal-prose p,
+.legal-prose ul,
+.legal-prose ol {
+  margin-bottom: 1.125rem;
+}
+
+.legal-prose ul,
+.legal-prose ol {
+  padding-left: 1.35rem;
+}
+
+.legal-prose ul { list-style: disc; }
+.legal-prose ol { list-style: decimal; }
+.legal-prose li { margin-bottom: 0.5rem; }
+
+.legal-prose a {
+  color: var(--color-blue-brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-prose a:hover { color: var(--color-indigo-brand); }
+
+.legal-prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
 /* ---------- Accessibility: honour reduced motion everywhere ---------- */
 @media (prefers-reduced-motion: reduce) {
   html, html:not(.lenis) { scroll-behavior: auto; }

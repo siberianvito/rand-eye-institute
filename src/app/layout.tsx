@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
 import { practice } from "@/lib/data";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -115,6 +116,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <StickyCall />
+        <AccessibilityWidget />
       </body>
     </html>
   );

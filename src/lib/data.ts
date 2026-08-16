@@ -249,3 +249,10 @@ export const navLinks = [
 
 /** Single place to change where every consultation CTA points. */
 export const CONSULT_PATH = "/contact";
+
+export const legalLinks = [
+  { label: "HIPAA Notice of Privacy Practices", href: "/hipaa-notice" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Accessibility Statement", href: "/accessibility" },
+] as const;
