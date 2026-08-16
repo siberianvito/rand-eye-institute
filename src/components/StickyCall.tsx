@@ -27,17 +27,19 @@ export default function StickyCall() {
         show ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="flex gap-3">
+      {/* Matched heights, centred labels, and the CTA given enough of the row
+          that "Request Consultation" stays on one line down to 320px. */}
+      <div className="flex items-stretch gap-2.5">
         <a
           href={practice.phoneHref}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full border border-line-strong px-4 py-3.5 font-semibold text-ink cursor-pointer"
+          className="flex h-13 basis-[34%] items-center justify-center gap-2 rounded-full border border-line-strong bg-card text-[0.95rem] font-semibold whitespace-nowrap text-ink cursor-pointer"
         >
           <IconPhone className="h-5 w-5 text-blue-brand" />
           Call
         </a>
         <Link
           href="/contact"
-          className="brand-gradient btn-alive flex flex-2 items-center justify-center rounded-full px-4 py-3.5 font-semibold text-white cursor-pointer"
+          className="brand-gradient btn-alive flex h-13 flex-1 items-center justify-center rounded-full px-3 text-center text-[0.95rem] font-semibold whitespace-nowrap text-white cursor-pointer"
         >
           Request Consultation
         </Link>

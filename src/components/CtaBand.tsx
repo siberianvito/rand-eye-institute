@@ -39,7 +39,7 @@ export default function CtaBand() {
           <div className="mt-10 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
             <Link
               href={CONSULT_PATH}
-              className="brand-gradient btn-alive group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4.5 text-base font-semibold text-white [--sweep-delay:0.8s] cursor-pointer"
+              className="brand-gradient btn-alive group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4.5 text-base font-semibold whitespace-nowrap sm:px-8 text-white [--sweep-delay:0.8s] cursor-pointer"
             >
               Request Your Consultation
               <IconArrow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
