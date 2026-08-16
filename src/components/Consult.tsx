@@ -1,42 +1,16 @@
-"use client";
-
-import { useState } from "react";
-import { practice, signatureProcedures } from "@/lib/data";
-import { submitLead } from "@/lib/leads";
+import Script from "next/script";
+import { practice } from "@/lib/data";
 import Reveal from "./Reveal";
 import { IconCheck, IconPhone, IconShield } from "./Icons";
 
-type Status = "idle" | "sending" | "sent" | "error";
-
-const fieldClass =
-  "w-full rounded-xl border border-line-strong bg-card px-4 py-3.5 text-ink placeholder:text-grey-brand transition-colors duration-200 focus:border-blue-brand focus:outline-none";
+/**
+ * The form itself is hosted by GoHighLevel, so submissions land straight in
+ * the CRM with no credential on our side. Fields, validation and the
+ * thank-you step are all managed in GHL — not here.
+ */
+const GHL_FORM_ID = "hZrXknw6FqkDh58VKX2P";
 
 export default function Consult() {
-  const [status, setStatus] = useState<Status>("idle");
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    // Honeypot: a real person never fills a field they cannot see. Pretend to
-    // succeed so the bot does not learn to retry, but send nothing.
-    if (String(data.get("_honey") ?? "").length > 0) {
-      setStatus("sent");
-      return;
-    }
-
-    setStatus("sending");
-
-    try {
-      await submitLead(data);
-      setStatus("sent");
-      form.reset();
-    } catch {
-      setStatus("error");
-    }
-  }
-
   return (
     <section
       id="request"
@@ -103,179 +77,42 @@ export default function Consult() {
             </Reveal>
           </div>
 
-          {/* Form */}
+          {/* GoHighLevel form */}
           <Reveal delay={160}>
-            <div className="rounded-3xl border border-line bg-card p-7 shadow-lift-lg lg:p-10">
-              {status === "sent" ? (
-                <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
-                  <div className="brand-gradient grid h-16 w-16 place-items-center rounded-full text-white">
-                    <IconCheck className="h-8 w-8" />
-                  </div>
-                  <h3 className="mt-7 text-3xl">Request received</h3>
-                  <p className="mt-3 max-w-sm text-slate-body">
-                    A member of our team will call you within one business day
-                    to schedule your consultation. If you need us sooner, call{" "}
-                    <a
-                      href={practice.phoneHref}
-                      className="font-semibold text-blue-brand underline underline-offset-4 cursor-pointer"
-                    >
-                      {practice.phone}
-                    </a>
-                    .
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={onSubmit} noValidate={false}>
-                  <h3 className="text-3xl">Request your consultation</h3>
-                  <p className="mt-2 text-[0.95rem] text-slate-body">
-                    We reply within one business day.
-                  </p>
+            <div className="overflow-hidden rounded-3xl border border-line bg-card p-4 shadow-lift-lg sm:p-6 lg:p-8">
+              <iframe
+                src={`https://api.leadconnectorhq.com/widget/form/${GHL_FORM_ID}`}
+                title="Request a consultation at Rand Eye Institute"
+                id={`inline-${GHL_FORM_ID}`}
+                data-layout='{"id":"INLINE"}'
+                data-trigger-type="alwaysShow"
+                data-activation-type="alwaysActivated"
+                data-deactivation-type="neverDeactivate"
+                data-form-name="Request a Consultation"
+                data-form-id={GHL_FORM_ID}
+                data-layout-iframe-id={`inline-${GHL_FORM_ID}`}
+                data-height="700"
+                /* form_embed.js resizes this to fit; the min-height keeps the
+                   card from collapsing before the script lands. */
+                className="min-h-[700px] w-full border-0"
+                scrolling="no"
+              />
 
-                  {/* Honeypot — hidden from people, irresistible to bots */}
-                  <input
-                    type="text"
-                    name="_honey"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    className="absolute h-0 w-0 opacity-0"
-                    aria-hidden
-                  />
-
-                  <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                    <div className="sm:col-span-2">
-                      <label
-                        htmlFor="name"
-                        className="mb-2 block text-[0.85rem] font-semibold text-ink"
-                      >
-                        Full name <span className="text-cyan-brand">*</span>
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        autoComplete="name"
-                        placeholder="Jane Doe"
-                        className={fieldClass}
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="mb-2 block text-[0.85rem] font-semibold text-ink"
-                      >
-                        Phone <span className="text-cyan-brand">*</span>
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        autoComplete="tel"
-                        placeholder="(954) 000-0000"
-                        className={fieldClass}
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="mb-2 block text-[0.85rem] font-semibold text-ink"
-                      >
-                        Email <span className="text-cyan-brand">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        placeholder="jane@email.com"
-                        className={fieldClass}
-                      />
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <label
-                        htmlFor="procedure"
-                        className="mb-2 block text-[0.85rem] font-semibold text-ink"
-                      >
-                        What are you interested in?
-                      </label>
-                      <select
-                        id="procedure"
-                        name="procedure"
-                        defaultValue=""
-                        className={`${fieldClass} cursor-pointer`}
-                      >
-                        <option value="">I&rsquo;m not sure yet</option>
-                        {signatureProcedures.map((p) => (
-                          <option key={p.id} value={p.name}>
-                            {p.name}
-                          </option>
-                        ))}
-                        <option value="Comprehensive eye exam">
-                          Comprehensive eye exam
-                        </option>
-                        <option value="Other">Something else</option>
-                      </select>
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <label
-                        htmlFor="message"
-                        className="mb-2 block text-[0.85rem] font-semibold text-ink"
-                      >
-                        Anything we should know?
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        placeholder="Current prescription, previous eye surgery, or the best time to reach you."
-                        className={`${fieldClass} resize-y`}
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="brand-gradient btn-alive mt-8 w-full rounded-full px-8 py-4.5 text-base font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
-                  >
-                    {status === "sending" ? "Sending…" : "Request My Consultation"}
-                  </button>
-
-                  {status === "error" && (
-                    <p
-                      role="alert"
-                      className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-[0.9rem] text-red-700"
-                    >
-                      Something went wrong sending your request. Please call us
-                      at{" "}
-                      <a
-                        href={practice.phoneHref}
-                        className="font-semibold underline underline-offset-4 cursor-pointer"
-                      >
-                        {practice.phone}
-                      </a>{" "}
-                      and we will take care of it.
-                    </p>
-                  )}
-
-                  <p className="mt-5 flex items-start gap-2.5 text-[0.82rem] leading-relaxed text-grey-brand">
-                    <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
-                    Your information is used only to contact you about your care.
-                    Please do not send sensitive medical details through this
-                    form.
-                  </p>
-                </form>
-              )}
+              <p className="mt-4 flex items-start gap-2.5 px-1 text-[0.82rem] leading-relaxed text-grey-brand">
+                <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
+                Your information is used only to contact you about your care.
+                Please do not send sensitive medical details through this form.
+              </p>
             </div>
           </Reveal>
         </div>
       </div>
+
+      {/* Auto-sizes the embedded form to its content */}
+      <Script
+        src="https://link.msgsndr.com/js/form_embed.js"
+        strategy="lazyOnload"
+      />
     </section>
   );
 }
