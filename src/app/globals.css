@@ -1,26 +1,375 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ---- Rand Eye Institute brand ---- */
+  --color-cyan-brand: #00a0e0;
+  --color-blue-brand: #0066b3;
+  --color-indigo-brand: #2e3192;
+
+  --color-ink: #0a172b;
+  --color-ink-deep: #061021;
+  --color-ink-soft: #1e3252;
+  --color-slate-body: #47607d;
+  /* Darkened to clear 4.5:1 on both --color-surface and --color-card.
+     Muted text still has to be readable to a low-vision patient. */
+  --color-grey-brand: #4e6880;
+
+  /* Deliberately no pure white anywhere. A field of #fff is genuinely
+     painful for photophobic and post-op patients, who are much of this
+     audience — the page sits on a soft blue-grey instead. */
+  --color-surface: #e3ecf6;
+  --color-surface-tint: #d4e3f1;
+  --color-surface-deep: #bed4e9;
+  --color-card: #f2f8fd;
+  --color-line: #bed1e5;
+  --color-line-strong: #9bb7d2;
+
+  /* Anniversary badge only */
+  --color-gold: #c8a43c;
+  --color-gold-light: #f0d788;
+  --color-gold-deep: #8a6a1d;
+
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --shadow-lift: 0 1px 2px rgb(12 27 51 / 0.04), 0 12px 32px -8px rgb(12 27 51 / 0.10);
+  --shadow-lift-lg: 0 2px 4px rgb(12 27 51 / 0.04), 0 28px 64px -16px rgb(12 27 51 / 0.16);
+  --shadow-glow: 0 18px 44px -12px rgb(0 102 179 / 0.45);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Native smooth scrolling only when Lenis is NOT driving — running both
+     at once makes anchor jumps fight each other. */
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    /* 17px base — this audience skews 55+; legibility is a conversion lever */
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  /* Visible focus for keyboard users on every interactive element */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-blue-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-cyan-brand);
+    color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .brand-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-cyan-brand) 0%,
+      var(--color-blue-brand) 52%,
+      var(--color-indigo-brand) 100%
+    );
+  }
+
+  .brand-text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-cyan-brand) 0%,
+      var(--color-blue-brand) 48%,
+      var(--color-indigo-brand) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* The indigo end of the brand ramp disappears against the ink background,
+     so dark sections get a lifted version of the same gradient. */
+  .brand-text-gradient-dark {
+    background-image: linear-gradient(
+      100deg,
+      #7fe4ff 0%,
+      #38b6ef 46%,
+      #8fb3ff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-blue-brand);
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .shell { padding-inline: 2.5rem; }
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s var(--ease-out-soft),
+    transform 0.85s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Living iris ----------
+   Registered so the browser can interpolate the colours smoothly; plain
+   custom properties would jump between keyframes instead of blending. */
+@property --iris-core {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7fe4ff;
+}
+@property --iris-mid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0d76c4;
+}
+@property --iris-edge {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0a2148;
+}
+
+/* Muted eye colours only — blue, sea-green, soft hazel, grey, dusk. Kept low
+   in saturation and close to the brand so the iris stays atmosphere behind the
+   headline rather than a light show competing with it. */
+@keyframes iris-colors {
+  0%,
+  100% {
+    --iris-core: #a9d4e8;
+    --iris-mid: #3f7ba3;
+    --iris-edge: #1b3348;
+  }
+  20% {
+    --iris-core: #aed0c6;
+    --iris-mid: #4c8579;
+    --iris-edge: #1d3630;
+  }
+  40% {
+    --iris-core: #d8cbb4;
+    --iris-mid: #8d7a56;
+    --iris-edge: #38301f;
+  }
+  60% {
+    --iris-core: #ccd6de;
+    --iris-mid: #74879a;
+    --iris-edge: #29333d;
+  }
+  80% {
+    --iris-core: #c3c2dc;
+    --iris-mid: #6b6a95;
+    --iris-edge: #2a2740;
+  }
+}
+
+/* The pupil never sits perfectly still in a real eye. */
+@keyframes pupil-breathe {
+  0%,
+  100% { transform: scale(1); }
+  35%  { transform: scale(0.82); }
+  70%  { transform: scale(1.1); }
+}
+
+@keyframes iris-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes iris-halo {
+  0%,
+  100% { opacity: 0.45; transform: scale(1); }
+  50%  { opacity: 0.8; transform: scale(1.06); }
+}
+
+.iris-eye {
+  animation: iris-colors 32s ease-in-out infinite;
+}
+
+.iris-pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pupil-breathe 11s ease-in-out infinite;
+}
+
+.iris-fibres {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: iris-spin 140s linear infinite;
+}
+
+.iris-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: iris-halo 7s ease-in-out infinite;
+}
+
+/* ---------- Buttons that read as alive ----------
+   Deliberately slow. Anything approaching a strobe is a hazard for the
+   photosensitive patients this practice treats, so the sweep is a ~5s
+   glide and the glow a gentle breath — nowhere near a flash rate. */
+@keyframes btn-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 14px 34px -12px rgb(0 102 179 / 0.5),
+      0 0 0 0 rgb(0 160 224 / 0.4);
+  }
+  50% {
+    box-shadow:
+      0 20px 46px -12px rgb(0 102 179 / 0.7),
+      0 0 0 12px rgb(0 160 224 / 0);
+  }
+}
+
+@keyframes btn-sweep {
+  0%,
+  58%  { transform: translateX(-130%) skewX(-18deg); }
+  88%,
+  100% { transform: translateX(130%) skewX(-18deg); }
+}
+
+.btn-alive {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  animation: btn-glow 3.4s ease-in-out infinite;
+  transition:
+    transform 0.25s var(--ease-out-soft),
+    filter 0.25s var(--ease-out-soft);
+}
+
+.btn-alive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.5) 50%,
+    transparent 100%
+  );
+  width: 45%;
+  animation: btn-sweep 5s ease-in-out infinite;
+  animation-delay: var(--sweep-delay, 0s);
+}
+
+.btn-alive:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+.btn-alive:active {
+  transform: translateY(0);
+}
+
+/* Outline buttons get the same aliveness without the fill. */
+.btn-outline-alive {
+  transition:
+    border-color 0.25s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft),
+    transform 0.25s var(--ease-out-soft),
+    color 0.25s var(--ease-out-soft);
+}
+
+.btn-outline-alive:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-cyan-brand);
+  box-shadow: 0 14px 32px -14px rgb(0 102 179 / 0.55);
+}
+
+/* Cards lift a little more decisively now. */
+@keyframes pin-pulse {
+  0%,
+  100% { box-shadow: 0 0 0 0 rgb(0 160 224 / 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgb(0 160 224 / 0); }
+}
+
+.pin-pulse {
+  animation: pin-pulse 2.8s ease-out infinite;
+}
+
+/* ---------- Ambient iris field (hero) ---------- */
+@keyframes iris-drift {
+  0%,
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(2%, -3%, 0) scale(1.08); }
+}
+
+@keyframes iris-drift-alt {
+  0%,
+  100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50%  { transform: translate3d(-3%, 2%, 0) scale(1); }
+}
+
+@keyframes iris-pulse {
+  0%,
+  100% { opacity: 0.55; }
+  50%  { opacity: 0.85; }
+}
+
+.iris-a { animation: iris-drift 22s var(--ease-out-soft) infinite; }
+.iris-b { animation: iris-drift-alt 28s var(--ease-out-soft) infinite; }
+.iris-c { animation: iris-pulse 9s ease-in-out infinite; }
+
+/* ---------- Accessibility: honour reduced motion everywhere ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html, html:not(.lenis) { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

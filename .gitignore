@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Working image originals (20MB of source PNGs/JPGs).
+# Kept locally for re-exports; the optimized versions in /public are what ship.
+/assets/
