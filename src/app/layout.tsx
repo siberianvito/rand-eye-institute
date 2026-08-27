@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     "cataract surgery Broward County",
     "corneal cross-linking Florida",
     "eye doctor Deerfield Beach",
+    "retina specialist Deerfield Beach",
+    "macular degeneration treatment Florida",
+    "diabetic retinopathy Broward County",
     "ophthalmologist South Florida",
     "keratoconus treatment",
   ],
@@ -92,6 +95,9 @@ const schema = {
     { "@type": "MedicalProcedure", name: "LASIK Laser Vision Correction" },
     { "@type": "MedicalProcedure", name: "Laser Cataract Surgery" },
     { "@type": "MedicalProcedure", name: "Corneal Cross-Linking" },
+    { "@type": "MedicalProcedure", name: "Retina and Vitreous Surgery" },
+    { "@type": "MedicalProcedure", name: "Macular Degeneration Treatment" },
+    { "@type": "MedicalProcedure", name: "Diabetic Retinopathy Treatment" },
   ],
 };
 

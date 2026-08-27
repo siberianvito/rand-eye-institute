@@ -90,8 +90,11 @@ export const signatureProcedures = [
 
 export const additionalServices = [
   {
-    name: "Vitreo-Retinal Surgery",
-    detail: "Retinal detachment, macular disease, and diabetic eye care.",
+    // Leads the list: it is a full specialty here, and the name people
+    // actually search for is "retina", not "vitreo-retinal".
+    name: "Retina & Vitreous",
+    detail:
+      "Macular degeneration, diabetic retinopathy, retinal tears and detachment, macular holes and floaters — medical and surgical.",
   },
   {
     name: "Corneal Transplantation",
