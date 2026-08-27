@@ -69,25 +69,29 @@ export default function Intro() {
             </Reveal>
 
             <Reveal delay={260}>
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-0.5 text-cyan-brand">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <IconStar key={i} className="h-4.5 w-4.5" />
-                    ))}
-                  </div>
-                  <p className="text-[0.95rem] text-slate-body">
-                    Trusted by South Florida families for {years.phrase}
-                  </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="flex gap-0.5 text-cyan-brand">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <IconStar key={i} className="h-4.5 w-4.5" />
+                  ))}
                 </div>
+                <p className="text-[0.95rem] text-slate-body">
+                  Trusted by South Florida families for {years.phrase}
+                </p>
+              </div>
+            </Reveal>
 
+            {/* Centred beneath the copy — it reads as a seal there, rather
+                than as one more item crowding the trust line. */}
+            <Reveal delay={320}>
+              <div className="mt-10 flex justify-center lg:mt-12">
                 <Image
                   src={asset("/badge-50.png")}
                   alt={`${practice.name} — ${years.figure} Years, ${practice.tagline}`}
                   width={640}
                   height={668}
                   priority
-                  className="h-20 w-auto drop-shadow-[0_10px_22px_rgba(10,23,43,0.22)] sm:h-24"
+                  className="h-44 w-auto drop-shadow-[0_18px_36px_rgba(10,23,43,0.28)] sm:h-52 lg:h-60"
                 />
               </div>
             </Reveal>
