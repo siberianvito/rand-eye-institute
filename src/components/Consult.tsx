@@ -1,14 +1,7 @@
-import Script from "next/script";
 import { practice } from "@/lib/data";
+import GhlForm from "./GhlForm";
 import Reveal from "./Reveal";
-import { IconCheck, IconPhone, IconShield } from "./Icons";
-
-/**
- * The form itself is hosted by GoHighLevel, so submissions land straight in
- * the CRM with no credential on our side. Fields, validation and the
- * thank-you step are all managed in GHL — not here.
- */
-const GHL_FORM_ID = "hZrXknw6FqkDh58VKX2P";
+import { IconCheck, IconPhone } from "./Icons";
 
 export default function Consult() {
   return (
@@ -79,40 +72,11 @@ export default function Consult() {
 
           {/* GoHighLevel form */}
           <Reveal delay={160}>
-            <div className="overflow-hidden rounded-3xl border border-line bg-card p-4 shadow-lift-lg sm:p-6 lg:p-8">
-              <iframe
-                src={`https://api.leadconnectorhq.com/widget/form/${GHL_FORM_ID}`}
-                title="Request a consultation at Rand Eye Institute"
-                id={`inline-${GHL_FORM_ID}`}
-                data-layout='{"id":"INLINE"}'
-                data-trigger-type="alwaysShow"
-                data-activation-type="alwaysActivated"
-                data-deactivation-type="neverDeactivate"
-                data-form-name="Request a Consultation"
-                data-form-id={GHL_FORM_ID}
-                data-layout-iframe-id={`inline-${GHL_FORM_ID}`}
-                data-height="700"
-                /* form_embed.js resizes this to fit; the min-height keeps the
-                   card from collapsing before the script lands. */
-                className="min-h-[700px] w-full border-0"
-                scrolling="no"
-              />
-
-              <p className="mt-4 flex items-start gap-2.5 px-1 text-[0.82rem] leading-relaxed text-grey-brand">
-                <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
-                Your information is used only to contact you about your care.
-                Please do not send sensitive medical details through this form.
-              </p>
-            </div>
+            <GhlForm instance="contact" className="lg:p-8" />
           </Reveal>
         </div>
       </div>
 
-      {/* Auto-sizes the embedded form to its content */}
-      <Script
-        src="https://link.msgsndr.com/js/form_embed.js"
-        strategy="lazyOnload"
-      />
     </section>
   );
 }

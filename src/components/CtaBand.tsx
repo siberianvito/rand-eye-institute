@@ -1,4 +1,5 @@
 import Link from "next/link";
+import IrisEye from "./IrisEye";
 import { CONSULT_PATH, practice } from "@/lib/data";
 import Reveal from "./Reveal";
 import { IconArrow, IconPhone } from "./Icons";
@@ -13,6 +14,7 @@ export default function CtaBand() {
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-70">
         <div className="iris-a absolute -top-1/2 left-[8%] h-[46vw] max-h-[620px] w-[46vw] max-w-[620px] rounded-full bg-[radial-gradient(circle,rgba(0,160,224,0.32)_0%,transparent_66%)]" />
         <div className="iris-b absolute -bottom-1/2 right-[4%] h-[44vw] max-h-[600px] w-[44vw] max-w-[600px] rounded-full bg-[radial-gradient(circle,rgba(46,49,146,0.55)_0%,transparent_68%)]" />
+        <IrisEye className="absolute top-1/2 left-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 opacity-35 [mask-image:radial-gradient(circle,#000_38%,transparent_70%)] lg:h-[760px] lg:w-[760px]" />
       </div>
 
       <div className="shell relative text-center">

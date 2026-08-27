@@ -93,12 +93,12 @@ export default function Nav() {
             </Link>
 
             <nav aria-label="Primary" className="hidden lg:block">
-              <ul className="flex items-center gap-8">
+              <ul className="flex items-center gap-6 xl:gap-8">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="relative block py-2 text-[0.95rem] font-medium text-white/80 transition-colors duration-200 hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-brand after:transition-all after:duration-300 hover:after:w-full"
+                      className="relative block py-2 text-[0.95rem] font-medium whitespace-nowrap text-white/80 transition-colors duration-200 hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-brand after:transition-all after:duration-300 hover:after:w-full"
                     >
                       {link.label}
                     </Link>
