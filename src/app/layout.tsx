@@ -22,7 +22,10 @@ const sans = Figtree({
   display: "swap",
 });
 
-const siteUrl = "https://www.randeye.com";
+// Set by the deploy workflow; falls back to the practice domain so
+// canonicals are never left pointing at a preview host.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.randeye.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

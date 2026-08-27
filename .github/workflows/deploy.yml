@@ -18,9 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Project page, so the site is served from a sub-path.
-      # Delete this once a custom domain points at the repo root.
-      NEXT_PUBLIC_BASE_PATH: /rand-eye-institute
+      # Set the CUSTOM_DOMAIN repo variable (Settings -> Secrets and variables
+      # -> Actions -> Variables) to publish on a real domain, e.g. randeye.com.
+      # Leave it unset and the site stays on the /rand-eye-institute project path.
+      CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,8 +29,31 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+
+      # A custom domain serves from the root, so the project sub-path has to
+      # go — leave it in and every asset and link 404s on the new domain.
+      - name: Resolve base path and canonical URL
+        run: |
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "Publishing to https://$CUSTOM_DOMAIN (no base path)"
+            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://$CUSTOM_DOMAIN" >> "$GITHUB_ENV"
+          else
+            echo "Publishing to the project page (base path /rand-eye-institute)"
+            echo "NEXT_PUBLIC_BASE_PATH=/rand-eye-institute" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://siberianvito.github.io/rand-eye-institute" >> "$GITHUB_ENV"
+          fi
+
       - run: npm run build
       - run: touch out/.nojekyll
+
+      # Ships with every deploy so the domain cannot be dropped by a re-deploy
+      - name: Write CNAME
+        run: |
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "$CUSTOM_DOMAIN" > out/CNAME
+            echo "CNAME -> $(cat out/CNAME)"
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
