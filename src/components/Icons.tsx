@@ -100,3 +100,23 @@ export const IconStar = ({ className }: IconProps) => (
     <path d="m12 2.6 2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95Z" />
   </svg>
 );
+
+export const IconFlask = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <path d="M9.5 3h5M10.5 3v6.2L5.4 17.8A2 2 0 0 0 7.1 21h9.8a2 2 0 0 0 1.7-3.2L13.5 9.2V3" />
+    <path d="M7.8 14.5h8.4" />
+  </svg>
+);
+
+export const IconDroplet = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <path d="M12 3.2s5.5 5.4 5.5 9.3a5.5 5.5 0 0 1-11 0C6.5 8.6 12 3.2 12 3.2Z" />
+    <path d="M9.6 13.4a2.6 2.6 0 0 0 2.6 2.6" />
+  </svg>
+);
+
+export const IconPulse = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <path d="M2.5 12h4l2.2-5.4 3.4 11L14.6 12h6.9" />
+  </svg>
+);

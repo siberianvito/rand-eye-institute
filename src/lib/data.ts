@@ -115,6 +115,54 @@ export const additionalServices = [
   },
 ] as const;
 
+/**
+ * Clinical research areas.
+ *
+ * TODO (pre-launch): the practice must confirm which of these are actually
+ * enrolling and supply the study identifiers. Descriptions below cover the
+ * CONDITION and what taking part generally involves — deliberately no study
+ * names, sponsors, phases or NCT numbers, because inventing those on a medical
+ * site would be indistinguishable from real ones to a patient reading it.
+ */
+export const clinicalTrials = [
+  {
+    id: "wet-amd",
+    name: "Wet Macular Degeneration",
+    kicker: "Retina — Neovascular AMD",
+    summary:
+      "In the wet form, abnormal vessels grow beneath the retina and leak fluid and blood, which can take central vision quickly. Standard care is injections that suppress that growth. Research in this area looks at treatments that last longer between visits.",
+    involves: [
+      "Imaging of the retina at each visit",
+      "Study treatment and monitoring at no cost to you",
+      "Regular follow-up with your retina specialist",
+    ],
+  },
+  {
+    id: "dry-amd",
+    name: "Dry Macular Degeneration",
+    kicker: "Retina — Geographic Atrophy",
+    summary:
+      "The dry form advances slowly as cells in the macula thin and drop out, leaving blind spots that widen over time. Research here is focused on slowing how fast that atrophy spreads.",
+    involves: [
+      "Detailed mapping of the macula over time",
+      "Study treatment and monitoring at no cost to you",
+      "A longer schedule of visits, often over months",
+    ],
+  },
+  {
+    id: "dry-eye",
+    name: "Dry Eye Disease",
+    kicker: "Ocular Surface",
+    summary:
+      "Chronic dry eye is an inflammatory disease of the tear film and ocular surface, not simply a lack of tears — which is why drops alone often fall short. Research looks at treatments that address the inflammation underneath.",
+    involves: [
+      "Tear film and ocular surface testing",
+      "Study treatment and monitoring at no cost to you",
+      "Short, straightforward follow-up visits",
+    ],
+  },
+] as const;
+
 export const doctors = [
   {
     name: "William J. Rand, M.D.",
@@ -243,6 +291,7 @@ export const navLinks = [
   { label: "Why Rand", href: "/#why-rand" },
   { label: "Physicians", href: "/#physicians" },
   { label: "Technology", href: "/#technology" },
+  { label: "Research", href: "/#research" },
   { label: "Questions", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ] as const;
