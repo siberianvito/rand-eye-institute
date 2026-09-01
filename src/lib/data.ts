@@ -60,7 +60,7 @@ export const services = [
     name: "Comprehensive Ophthalmology",
     kicker: "Complete Eye Health",
     summary:
-      "Full medical eye care for adults and children — examinations, diagnosis and ongoing management of the conditions that affect how you see, from routine vision changes to complex disease.",
+      "Full medical eye care for adults — examinations, diagnosis and ongoing management of the conditions that affect how you see, from routine vision changes to complex disease.",
     points: [
       "Complete diagnostic examination",
       "Ongoing management of chronic eye conditions",

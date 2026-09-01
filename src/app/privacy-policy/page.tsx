@@ -104,9 +104,9 @@ export default function PrivacyPolicyPage() {
       <h2>Children</h2>
       <p>
         This website is not directed at children under 13 and we do not
-        knowingly collect information from them here. We do treat pediatric
-        patients; in that case, information is provided by a parent or guardian
-        in the course of care and is handled under our HIPAA notice.
+        knowingly collect information from them here. Where information about a
+        minor is provided to us by a parent or guardian in the course of care,
+        it is handled under our HIPAA notice.
       </p>
 
       <h2>Changes</h2>
