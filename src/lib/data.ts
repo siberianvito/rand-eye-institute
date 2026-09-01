@@ -40,7 +40,7 @@ export const stats = [
   { value: 50, suffix: "+", label: "Years of surgical expertise" },
   { value: 136000, suffix: "+", label: "Surgeries performed" },
   { value: 35, suffix: "", label: "Years of Joint Commission accreditation" },
-  { value: 4, suffix: "", label: "Surgical suites under one roof" },
+  { value: 24000, suffix: "", label: "Square feet dedicated to eye care" },
 ] as const;
 
 /** Sits under the rail — the detail behind the "one roof" figure. */
