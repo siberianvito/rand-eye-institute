@@ -39,7 +39,7 @@ export const years = {
 export const stats = [
   { value: 50, suffix: "+", label: "Years of surgical expertise" },
   { value: 136000, suffix: "+", label: "Surgeries performed" },
-  { value: 150000, suffix: "+", label: "Visions restored" },
+  { value: 35, suffix: "", label: "Years of Joint Commission accreditation" },
   { value: 4, suffix: "", label: "Surgical suites under one roof" },
 ] as const;
 
