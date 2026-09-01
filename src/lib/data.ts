@@ -75,7 +75,7 @@ export const services = [
       "Cataract surgery is no longer only about removing a cloudy lens. With premium lens implants it becomes an opportunity to address a lifetime of prescription at the same time.",
     points: [
       "LenSx® laser-assisted, computer-guided precision",
-      "Premium Tecnis® and ReSTOR® lifestyle lens options",
+      "PanOptix® trifocal lens options",
       "Distance, near and astigmatism addressed together",
       "Outpatient procedure in our own surgical pavilion",
     ],
@@ -88,7 +88,7 @@ export const services = [
       "Wake up, look at the clock, and simply see. Our custom, no-flap laser vision correction is mapped to the unique optical fingerprint of your eye — not to an average.",
     points: [
       "No-flap technique — no blade, no corneal flap",
-      "CustomVue™ wavefront mapping of your individual eye",
+      "Wavefront mapping of your individual eye",
       "Performed in our on-site Rand Surgical Pavilion",
     ],
   },
@@ -341,14 +341,14 @@ export const technology = [
       "Computer-guided, image-mapped cataract surgery. Incisions planned in software before a single one is made.",
   },
   {
-    name: "CustomVue™ Wavefront",
+    name: "Eye Design Technology",
     detail:
       "Maps the optical imperfections unique to your eye and builds a laser treatment around them.",
   },
   {
-    name: "Tecnis® & ReSTOR® Lenses",
+    name: "PanOptix® Lenses",
     detail:
-      "Premium lifestyle lens implants that can address distance, near, and astigmatism at once.",
+      "A trifocal lens implant that restores near, intermediate and distance vision from a single lens.",
   },
   {
     name: "Rand Surgical Pavilion",
@@ -371,7 +371,7 @@ export const differentiators = [
   {
     title: "Technology chosen, not collected.",
     detail:
-      "We adopt a platform when it measurably improves an outcome — LenSx, CustomVue, premium lens implants — and we train the entire team on it before it touches a patient.",
+      "We adopt a platform when it measurably improves an outcome — LenSx, PanOptix, premium lens implants — and we train the entire team on it before it touches a patient.",
   },
   {
     title: "Fifty years of judgment.",

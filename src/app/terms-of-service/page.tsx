@@ -68,7 +68,7 @@ export default function TermsOfServicePage() {
         The {practice.name} name, logo, the &ldquo;{practice.tagline}&rdquo;
         mark, and the text, images and design of this site are owned by the
         practice or its licensors and may not be reproduced without permission.
-        Product names such as LenSx, CustomVue, Tecnis and ReSTOR are trademarks
+        Product names such as LenSx and PanOptix are trademarks
         of their respective owners.
       </p>
 
