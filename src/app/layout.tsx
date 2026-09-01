@@ -110,6 +110,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
+        {/* Applies saved reader preferences before first paint. Without this
+            the widget applies them after hydration, which both flashes the
+            default palette and lets motion-sensitive animations fire once
+            before the reduced-motion flag is read. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var p=JSON.parse(localStorage.getItem('rei-reader-prefs')||'{}'),r=document.documentElement;" +
+              "if(p.textSize&&p.textSize!=='normal')r.setAttribute('data-text-size',p.textSize);" +
+              "if(p.contrast==='high')r.setAttribute('data-contrast','high');" +
+              "if(p.motion==='reduced')r.setAttribute('data-motion','reduced');" +
+              "if(p.underlineLinks==='on')r.setAttribute('data-underline-links','on');}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

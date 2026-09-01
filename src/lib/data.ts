@@ -32,12 +32,20 @@ export const years = {
   words: "fifty years",
 } as const;
 
+/**
+ * Credibility figures, supplied by the practice. `value` is numeric so the
+ * rail can count up to it; `suffix` carries the "+".
+ */
 export const stats = [
-  { value: years.figure, label: "Years of surgical excellence" },
-  { value: "100+", label: "Eye care professionals on staff" },
-  { value: "3", label: "Floors, including our own surgical pavilion" },
-  { value: "1", label: "Building, from consultation to recovery" },
+  { value: 50, suffix: "+", label: "Years of surgical expertise" },
+  { value: 136000, suffix: "+", label: "Surgeries performed" },
+  { value: 150000, suffix: "+", label: "Visions restored" },
+  { value: 4, suffix: "", label: "Surgical suites under one roof" },
 ] as const;
+
+/** Sits under the rail — the detail behind the "one roof" figure. */
+export const facilityLine =
+  "Three floors. Twenty-six exam and treatment rooms. Four surgical suites — every stage of your care in one building.";
 
 /** The three procedures the practice wants to lead with. */
 export const signatureProcedures = [

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { asset } from "@/lib/asset";
-import { CONSULT_PATH, practice, stats, years } from "@/lib/data";
+import { CONSULT_PATH, facilityLine, practice, stats, years } from "@/lib/data";
+import CountUp from "./CountUp";
 import GhlForm from "./GhlForm";
 import Reveal from "./Reveal";
 import { IconArrow, IconPhone, IconShield, IconStar } from "./Icons";
@@ -113,13 +114,13 @@ export default function Intro() {
           </Reveal>
         </div>
 
-        {/* Credibility rail */}
+        {/* Credibility rail — figures count up as it scrolls into view */}
         <Reveal delay={320}>
           <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-card px-6 py-7">
-                <dt className="font-display text-4xl text-blue-brand lg:text-5xl">
-                  {stat.value}
+                <dt className="font-display text-4xl text-blue-brand tabular-nums lg:text-5xl">
+                  <CountUp to={stat.value} suffix={stat.suffix} />
                 </dt>
                 <dd className="mt-1.5 text-[0.9rem] leading-snug text-slate-body">
                   {stat.label}
@@ -127,6 +128,12 @@ export default function Intro() {
               </div>
             ))}
           </dl>
+        </Reveal>
+
+        <Reveal delay={380}>
+          <p className="mt-5 text-center text-[0.95rem] text-slate-body">
+            {facilityLine}
+          </p>
         </Reveal>
       </div>
     </section>
