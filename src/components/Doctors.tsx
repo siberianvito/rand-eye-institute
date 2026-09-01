@@ -13,8 +13,8 @@ export default function Doctors() {
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-4 text-[clamp(2.25rem,4.6vw,3.5rem)]">
-              A family practice, in the
-              <span className="brand-text-gradient italic"> literal sense.</span>
+              Family owned
+              <span className="brand-text-gradient italic"> and operated.</span>
             </h2>
           </Reveal>
           <Reveal delay={150}>
