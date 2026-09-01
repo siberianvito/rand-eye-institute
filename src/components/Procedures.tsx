@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
-import { asset } from "@/lib/asset";
 import { services } from "@/lib/data";
+import EyeDiagram from "./EyeDiagram";
 import Reveal from "./Reveal";
 import {
   IconArrow,
@@ -93,8 +92,8 @@ export default function Procedures() {
         </div>
 
         {/* Anatomy explainer */}
-        <div className="mt-20 grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
-          <div>
+        <div className="mt-24">
+          <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <p className="eyebrow">Understand your eye</p>
             </Reveal>
@@ -106,57 +105,52 @@ export default function Procedures() {
             </Reveal>
             <Reveal delay={150}>
               <p className="mt-5 text-slate-body">
-                Almost every condition we treat comes down to one of these four
-                steps going wrong. Knowing which one it is makes the rest of this
-                site — and your own diagnosis — much easier to follow.
+                Almost every condition we treat comes down to one of these parts
+                not doing its job. Knowing which one it is makes your own
+                diagnosis far easier to follow.
               </p>
-            </Reveal>
-
-            {/* The graphic carries this in pixels; repeating it as text keeps
-                it available to screen readers and to search. */}
-            <Reveal delay={210}>
-              <ol className="mt-8 flex flex-col gap-4">
-                {[
-                  ["Light enters the eye", "Light passes through the cornea."],
-                  ["Focus", "The cornea and lens focus it onto the retina."],
-                  ["Conversion", "The retina turns light into electrical signals."],
-                  ["Brain signal", "The optic nerve carries them to the brain."],
-                ].map(([step, detail], i) => (
-                  <li key={step} className="flex gap-4 border-t border-line pt-4">
-                    <span className="brand-gradient grid h-7 w-7 shrink-0 place-items-center rounded-full text-[0.8rem] font-semibold text-white">
-                      {i + 1}
-                    </span>
-                    <span>
-                      <span className="block font-semibold text-ink">{step}</span>
-                      <span className="block text-[0.95rem] text-slate-body">
-                        {detail}
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
-
-            <Reveal delay={280}>
-              <Link
-                href="/contact"
-                className="brand-gradient btn-alive mt-9 inline-block rounded-full px-7 py-3.5 text-[0.95rem] font-semibold whitespace-nowrap text-white [--sweep-delay:2.4s] cursor-pointer"
-              >
-                Request Appointment
-              </Link>
             </Reveal>
           </div>
 
-          <Reveal delay={140}>
-            <div className="flex justify-center lg:sticky lg:top-32">
-              <Image
-                src={asset("/eye-anatomy.webp")}
-                alt="Cutaway illustration of a human eye showing the cornea and lens at the front, the coloured iris around the pupil, and the retina lining the back of the eye where the optic nerve leaves it."
-                width={800}
-                height={800}
-                sizes="(max-width: 1024px) 90vw, 560px"
-                className="h-auto w-full max-w-[560px] drop-shadow-[0_22px_44px_rgba(10,23,43,0.16)]"
-              />
+          <Reveal delay={200}>
+            <div className="mt-12">
+              <EyeDiagram />
+            </div>
+          </Reveal>
+
+          {/* The four steps, as text so they are readable without the graphic */}
+          <Reveal delay={260}>
+            <ol className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Light enters the eye", "Light passes through the cornea."],
+                ["Focus", "The cornea and lens focus it onto the retina."],
+                ["Conversion", "The retina turns light into electrical signals."],
+                ["Brain signal", "The optic nerve carries them to the brain."],
+              ].map(([step, detail], i) => (
+                <li
+                  key={step}
+                  className="rounded-2xl border border-line bg-card p-6"
+                >
+                  <span className="brand-gradient grid h-8 w-8 place-items-center rounded-full text-[0.85rem] font-semibold text-white">
+                    {i + 1}
+                  </span>
+                  <span className="mt-4 block font-semibold text-ink">{step}</span>
+                  <span className="mt-1 block text-[0.95rem] text-slate-body">
+                    {detail}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div className="mt-12 text-center">
+              <Link
+                href="/contact"
+                className="brand-gradient btn-alive inline-block rounded-full px-7 py-3.5 text-[0.95rem] font-semibold whitespace-nowrap text-white [--sweep-delay:2.4s] cursor-pointer"
+              >
+                Request Appointment
+              </Link>
             </div>
           </Reveal>
         </div>
