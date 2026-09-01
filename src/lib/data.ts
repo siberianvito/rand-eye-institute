@@ -224,6 +224,61 @@ export const visionConditions = [
   },
 ] as const;
 
+/**
+ * Pavilion gallery.
+ *
+ * TODO: photo files to be saved into public/gallery/. Alt text is written
+ * from the supplied images.
+ *
+ * CONSENT: four of these show identifiable patients. Under HIPAA a patient's
+ * image is protected health information, and using it for marketing needs a
+ * signed authorisation — not just verbal permission. The practice must
+ * confirm a release exists for each identifiable person before this section
+ * goes live. `identifiable` flags the ones that need it.
+ */
+export const galleryPhotos = [
+  {
+    src: "/gallery/team-thumbs-up.jpg",
+    alt: "Five members of the surgical team in scrubs and caps standing with a patient, everyone giving a thumbs up after her procedure.",
+    identifiable: true,
+  },
+  {
+    src: "/gallery/or-visx-wide.jpg",
+    alt: "The surgical suite during a laser procedure, the team working at the VISX laser while a live view of the eye is shown on the wall monitor.",
+    identifiable: false,
+  },
+  {
+    src: "/gallery/team-group.jpg",
+    alt: "Seven members of the Rand team gathered around a patient in the laser suite, all smiling for the camera.",
+    identifiable: true,
+  },
+  {
+    src: "/gallery/glaukos-laser.jpg",
+    alt: "A patient reclined beneath the Glaukos laser during an in-office procedure.",
+    identifiable: true,
+  },
+  {
+    src: "/gallery/microscope-team.jpg",
+    alt: "Two surgical staff at the operating microscope, the eye magnified on the monitors behind them.",
+    identifiable: false,
+  },
+  {
+    src: "/gallery/nurse-with-patient.jpg",
+    alt: "A nurse steadying a patient and talking him through the procedure as the laser is positioned.",
+    identifiable: true,
+  },
+  {
+    src: "/gallery/or-monitors.jpg",
+    alt: "The operating room mid-procedure, with the surgical field and the magnified eye displayed across the monitors.",
+    identifiable: false,
+  },
+  {
+    src: "/gallery/or-visx-suite.jpg",
+    alt: "The laser suite from the doorway, the team positioned around the patient and the VISX system.",
+    identifiable: false,
+  },
+] as const;
+
 export const doctors = [
   {
     name: "William J. Rand, M.D.",
