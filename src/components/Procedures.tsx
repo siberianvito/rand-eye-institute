@@ -39,7 +39,7 @@ export default function Procedures() {
               Complete eye care.
               <br />
               <span className="brand-text-gradient italic">
-                A lifetime of clarity.
+                A tailored approach.
               </span>
             </h2>
           </Reveal>
