@@ -253,11 +253,6 @@ export const galleryPhotos = [
     identifiable: true,
   },
   {
-    src: "/gallery/glaukos-laser.jpg",
-    alt: "A patient reclined beneath the Glaukos laser during an in-office procedure.",
-    identifiable: true,
-  },
-  {
     src: "/gallery/microscope-team.jpg",
     alt: "Two surgical staff at the operating microscope, the eye magnified on the monitors behind them.",
     identifiable: false,
