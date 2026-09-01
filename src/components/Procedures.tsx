@@ -93,22 +93,22 @@ export default function Procedures() {
         </div>
 
         {/* Anatomy explainer */}
-        <div className="mt-20 grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div className="lg:sticky lg:top-32">
+        <div className="mt-20 grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
+          <div>
             <Reveal>
               <p className="eyebrow">Understand your eye</p>
             </Reveal>
             <Reveal delay={80}>
               <h3 className="mt-4 text-[clamp(2rem,3.6vw,2.85rem)]">
-                The most advanced
-                <span className="brand-text-gradient italic"> custom LASIK.</span>
+                How sight
+                <span className="brand-text-gradient italic"> actually works.</span>
               </h3>
             </Reveal>
             <Reveal delay={150}>
               <p className="mt-5 text-slate-body">
-                Before you decide anything, it helps to see what we are actually
-                working on. This is how the eye focuses light — and where custom
-                LASIK makes its correction.
+                Almost every condition we treat comes down to one of these four
+                steps going wrong. Knowing which one it is makes the rest of this
+                site — and your own diagnosis — much easier to follow.
               </p>
             </Reveal>
 
@@ -140,22 +140,24 @@ export default function Procedures() {
             <Reveal delay={280}>
               <Link
                 href="/contact"
-                className="brand-gradient btn-alive mt-9 inline-block rounded-full px-7 py-3.5 text-[0.95rem] font-semibold text-white [--sweep-delay:2.4s] cursor-pointer"
+                className="brand-gradient btn-alive mt-9 inline-block rounded-full px-7 py-3.5 text-[0.95rem] font-semibold whitespace-nowrap text-white [--sweep-delay:2.4s] cursor-pointer"
               >
-                Ask if LASIK is right for you
+                Request Appointment
               </Link>
             </Reveal>
           </div>
 
           <Reveal delay={140}>
-            <Image
-              src={asset("/eye-anatomy.jpg")}
-              alt="Anatomy of the eye: the cornea, iris, pupil and lens at the front, and the sclera, choroid, retina, fovea and optic nerve at the back. Below, how vision works in four steps — light enters through the cornea, the cornea and lens focus it on the retina, the retina converts it to electrical signals, and the optic nerve carries those signals to the brain. Rand Eye Institute uses WaveScan topography to map the cornea and Iris Registration to track eye movement during surgery."
-              width={1024}
-              height={1536}
-              sizes="(max-width: 1024px) 100vw, 700px"
-              className="w-full rounded-3xl border border-line shadow-lift-lg"
-            />
+            <div className="flex justify-center lg:sticky lg:top-32">
+              <Image
+                src={asset("/eye-anatomy.webp")}
+                alt="Cutaway illustration of a human eye showing the cornea and lens at the front, the coloured iris around the pupil, and the retina lining the back of the eye where the optic nerve leaves it."
+                width={800}
+                height={800}
+                sizes="(max-width: 1024px) 90vw, 560px"
+                className="h-auto w-full max-w-[560px] drop-shadow-[0_22px_44px_rgba(10,23,43,0.16)]"
+              />
+            </div>
           </Reveal>
         </div>
       </div>
