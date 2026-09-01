@@ -33,8 +33,7 @@ export default function Technology() {
           <Reveal delay={150}>
             <p className="mt-6 text-lg text-white/70">
               We adopt a platform when it measurably improves an outcome — not
-              because it is new. Each one below is used daily, by surgeons
-              trained on it here.
+              because it is new.
             </p>
           </Reveal>
         </div>
