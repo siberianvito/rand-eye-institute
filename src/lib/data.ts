@@ -279,24 +279,63 @@ export const galleryPhotos = [
   },
 ] as const;
 
+/** Bios supplied by the practice. */
 export const doctors = [
   {
     name: "William J. Rand, M.D.",
-    role: "Founder & Medical Director",
+    role: "Medical Director & Founder",
+    kicker: "Founding Physician",
+    quote: "Clearly focused on the best vision possible.",
     photo: "/dr-william.jpg",
-    bio: "Founded Rand Eye Institute with four exam rooms and a singular standard of care. Fifty years later that standard still defines every procedure performed here.",
+    credentials: [
+      "Founding Physician, Rand Eye Institute",
+      "Member, American Academy of Ophthalmology",
+      "Fellow, American College of Surgeons",
+    ],
+    focus: [
+      "Comprehensive Ophthalmology",
+      "Cataract & Refractive Surgery with Premium Lenses",
+      "LASIK",
+    ],
   },
   {
     name: "Allison L. Rand, M.D.",
-    role: "Cornea & Refractive Cataract Surgery",
+    role: "Cornea · Dry Eye · Refractive Cataract Surgery",
+    kicker: "Fellowship Trained — Cornea",
+    quote: "Cornea, cataract, and a lifetime of dry-eye expertise.",
     photo: "/dr-allison.jpg",
-    bio: "Specializes in ocular surface disease, cornea and external disease, and refractive cataract surgery — the procedures where precision is measured in microns.",
+    credentials: [
+      "Fellowship: Cornea & External Disease",
+      "Diplomate, American Board of Ophthalmology",
+      "Ocular Surface Center Director",
+    ],
+    focus: [
+      "Comprehensive Ophthalmology",
+      "Cataract & Refractive Surgery with Premium Lenses",
+      "Corneal Transplantation",
+      "Corneal Collagen Crosslinking",
+      "LASIK",
+      "Dry Eye & Ocular Surface Disease",
+      "Pterygium Surgery",
+    ],
   },
   {
     name: "David L. Rand, M.D.",
-    role: "Director of Innovation",
+    role: "Director of Innovation · Refractive & Cataract Surgery",
+    kicker: "Board Certified",
+    quote: "Bringing LenSx® precision and premium IOL artistry.",
     photo: "/dr-david.jpg",
-    bio: "Leads the Institute's adoption of new surgical technology across comprehensive ophthalmology, refractive surgery, and cataract care.",
+    credentials: [
+      "Diplomate, American Board of Ophthalmology",
+      "Certified LenSx® femtosecond surgeon",
+      "Premium IOL clinical advisor",
+    ],
+    focus: [
+      "Comprehensive Ophthalmology",
+      "Cataract & Refractive Surgery with Premium Lenses",
+      "Corneal Collagen Crosslinking",
+      "LASIK",
+    ],
   },
 ] as const;
 
