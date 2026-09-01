@@ -239,7 +239,7 @@ export const visionConditions = [
 export const galleryPhotos = [
   {
     src: "/gallery/team-thumbs-up.jpg",
-    alt: "Five members of the surgical team in scrubs and caps standing with a patient, everyone giving a thumbs up after her procedure.",
+    alt: "Four members of the surgical team standing with a patient after her procedure, everyone giving a thumbs up.",
     identifiable: true,
   },
   {
@@ -249,7 +249,7 @@ export const galleryPhotos = [
   },
   {
     src: "/gallery/team-group.jpg",
-    alt: "Seven members of the Rand team gathered around a patient in the laser suite, all smiling for the camera.",
+    alt: "Six members of the Rand team gathered around a patient in the laser suite, all smiling for the camera.",
     identifiable: true,
   },
   {

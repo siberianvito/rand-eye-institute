@@ -2,6 +2,7 @@ import ClarityReveal from "@/components/ClarityReveal";
 import CtaBand from "@/components/CtaBand";
 import Doctors from "@/components/Doctors";
 import FAQ from "@/components/FAQ";
+import Gallery from "@/components/Gallery";
 import HeroVideo from "@/components/HeroVideo";
 import Intro from "@/components/Intro";
 import Procedures from "@/components/Procedures";
@@ -19,6 +20,7 @@ export default function Home() {
       <ClarityReveal />
       <WhyRand />
       <Doctors />
+      <Gallery />
       <Technology />
       <Research />
       <Testimonials />
