@@ -63,8 +63,8 @@ export default function ClarityReveal() {
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-4 text-[clamp(2.25rem,4.6vw,3.5rem)]">
-              This is the vision
-              <span className="brand-text-gradient italic"> we restore.</span>
+              What you see
+              <span className="brand-text-gradient italic"> matters.</span>
             </h2>
           </Reveal>
           <Reveal delay={150}>
