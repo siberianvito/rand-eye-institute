@@ -1,14 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
 import { asset } from "@/lib/asset";
-import { additionalServices, signatureProcedures } from "@/lib/data";
+import { services } from "@/lib/data";
 import Reveal from "./Reveal";
-import { IconArrow, IconCheck, IconClock, IconEye, IconScan, IconShield } from "./Icons";
+import {
+  IconArrow,
+  IconCheck,
+  IconDroplet,
+  IconEye,
+  IconPulse,
+  IconScan,
+  IconShield,
+  IconSparkle,
+} from "./Icons";
 
 const icons = {
-  lasik: IconEye,
+  comprehensive: IconEye,
   cataract: IconScan,
+  lasik: IconSparkle,
   "cross-linking": IconShield,
+  "dry-eye": IconDroplet,
+  retina: IconPulse,
 } as const;
 
 export default function Procedures() {
@@ -24,7 +36,7 @@ export default function Procedures() {
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-4 text-[clamp(2.25rem,4.6vw,3.5rem)]">
-              Three procedures.
+              Complete eye care.
               <br />
               <span className="brand-text-gradient italic">
                 A lifetime of clarity.
@@ -40,8 +52,8 @@ export default function Procedures() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {signatureProcedures.map((proc, i) => {
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((proc, i) => {
             const Icon = icons[proc.id];
             return (
               <Reveal key={proc.id} delay={i * 110}>
@@ -66,17 +78,10 @@ export default function Procedures() {
                     ))}
                   </ul>
 
-                  <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-7 text-[0.85rem] text-grey-brand">
-                    <span className="inline-flex items-center gap-1.5">
-                      <IconClock className="h-4 w-4" />
-                      {proc.duration}
-                    </span>
-                    <span>{proc.recovery}</span>
-                  </div>
 
                   <Link
                     href="/contact"
-                    className="mt-7 inline-flex items-center gap-2 text-[0.95rem] font-semibold text-blue-brand transition-colors duration-200 hover:text-indigo-brand cursor-pointer"
+                    className="mt-auto inline-flex items-center gap-2 text-[0.95rem] font-semibold text-blue-brand transition-colors duration-200 hover:text-indigo-brand cursor-pointer"
                   >
                     See if you&rsquo;re a candidate
                     <IconArrow className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -86,29 +91,6 @@ export default function Procedures() {
             );
           })}
         </div>
-
-        {/* Full scope of care */}
-        <Reveal delay={120}>
-          <div className="mt-20 rounded-3xl border border-line bg-card p-8 lg:p-12">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <h3 className="text-3xl">Comprehensive eye care, all in one building</h3>
-              <p className="text-[0.95rem] text-grey-brand">
-                Over 100 professionals on staff
-              </p>
-            </div>
-
-            <ul className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-              {additionalServices.map((service) => (
-                <li key={service.name} className="border-t border-line pt-5">
-                  <p className="font-semibold text-ink">{service.name}</p>
-                  <p className="mt-1.5 text-[0.95rem] text-slate-body">
-                    {service.detail}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
 
         {/* Anatomy explainer */}
         <div className="mt-20 grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">

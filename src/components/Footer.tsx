@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { additionalServices, legalLinks, navLinks, practice, signatureProcedures, years } from "@/lib/data";
+import { legalLinks, navLinks, practice, services, years } from "@/lib/data";
 import { IconPhone, IconPin, IconShield } from "./Icons";
 import Wordmark from "./Wordmark";
 
@@ -48,7 +48,7 @@ export default function Footer() {
               Procedures
             </h2>
             <ul className="mt-5 flex flex-col gap-3 text-[0.95rem]">
-              {signatureProcedures.map((p) => (
+              {services.slice(1, 4).map((p) => (
                 <li key={p.id}>
                   <Link
                     href="/#procedures"
@@ -66,7 +66,7 @@ export default function Footer() {
               Services
             </h2>
             <ul className="mt-5 flex flex-col gap-3 text-[0.95rem]">
-              {additionalServices.slice(0, 5).map((s) => (
+              {[services[0], services[4], services[5]].map((s) => (
                 <li key={s.name}>
                   <Link
                     href="/#procedures"

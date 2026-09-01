@@ -47,82 +47,87 @@ export const stats = [
 export const facilityLine =
   "Three floors. Twenty-six exam and treatment rooms. Four surgical suites — every stage of your care in one building.";
 
-/** The three procedures the practice wants to lead with. */
-export const signatureProcedures = [
+/**
+ * The practice's services, as supplied by them.
+ *
+ * Deliberately no procedure durations and no recovery or back-to-work
+ * estimates: healing varies person to person and the practice cannot promise
+ * a timeline. Anything time-bound belongs in a consultation, not on a page.
+ */
+export const services = [
   {
-    id: "lasik",
-    name: "Custom No-Flap LASIK",
-    kicker: "Laser Vision Correction",
+    id: "comprehensive",
+    name: "Comprehensive Ophthalmology",
+    kicker: "Complete Eye Health",
     summary:
-      "Wake up, look at the clock, and simply see. Our custom, no-flap laser vision correction is mapped to the unique optical fingerprint of your eye — not an average.",
+      "Full medical eye care for adults and children — examinations, diagnosis and ongoing management of the conditions that affect how you see, from routine vision changes to complex disease.",
     points: [
-      "No-flap technique — no blade, no corneal flap",
-      "CustomVue wavefront mapping of your individual eye",
-      "Most patients return to normal activity the next day",
-      "Performed in our on-site Rand Surgical Pavilion",
+      "Complete diagnostic examination",
+      "Ongoing management of chronic eye conditions",
+      "Referral within the practice when a specialist is needed",
     ],
-    duration: "About 15 minutes per eye",
-    recovery: "Most return to work in 1–2 days",
   },
   {
     id: "cataract",
-    name: "Laser Cataract Surgery",
+    name: "Refractive Cataract Surgery",
     kicker: "Premium Lens Implants",
     summary:
-      "Cataract surgery is no longer only about removing a cloudy lens. With premium lens implants, it is an opportunity to correct a lifetime of prescription at the same time.",
+      "Cataract surgery is no longer only about removing a cloudy lens. With premium lens implants it becomes an opportunity to address a lifetime of prescription at the same time.",
     points: [
       "LenSx® laser-assisted, computer-guided precision",
       "Premium Tecnis® and ReSTOR® lifestyle lens options",
-      "Correct distance, near, and astigmatism together",
-      "Outpatient procedure — home the same day",
+      "Distance, near and astigmatism addressed together",
+      "Outpatient procedure in our own surgical pavilion",
     ],
-    duration: "About 20 minutes per eye",
-    recovery: "Vision clears over the first days",
+  },
+  {
+    id: "lasik",
+    name: "Laser Vision Correction",
+    kicker: "Custom No-Flap LASIK",
+    summary:
+      "Wake up, look at the clock, and simply see. Our custom, no-flap laser vision correction is mapped to the unique optical fingerprint of your eye — not to an average.",
+    points: [
+      "No-flap technique — no blade, no corneal flap",
+      "CustomVue™ wavefront mapping of your individual eye",
+      "Performed in our on-site Rand Surgical Pavilion",
+    ],
   },
   {
     id: "cross-linking",
-    name: "Corneal Cross-Linking",
+    name: "Corneal Collagen Crosslinking",
     kicker: "Minimally Invasive",
     summary:
-      "For keratoconus and corneal thinning, cross-linking strengthens the collagen bonds inside your cornea — a minimally invasive treatment designed to halt progression and protect the sight you have.",
+      "For keratoconus and corneal thinning, crosslinking strengthens the collagen bonds inside your cornea — a minimally invasive treatment intended to halt progression and protect the sight you have.",
     points: [
       "Minimally invasive, performed in-office",
       "Strengthens corneal collagen to stop progression",
       "The standard of care for progressive keratoconus",
-      "Often preserves the option of future correction",
     ],
-    duration: "About 60 minutes",
-    recovery: "Protective lens for a few days",
-  },
-] as const;
-
-export const additionalServices = [
-  {
-    // Leads the list: it is a full specialty here, and the name people
-    // actually search for is "retina", not "vitreo-retinal".
-    name: "Retina & Vitreous",
-    detail:
-      "Macular degeneration, diabetic retinopathy, retinal tears and detachment, macular holes and floaters — medical and surgical.",
   },
   {
-    name: "Corneal Transplantation",
-    detail: "Full and partial-thickness grafts for corneal disease.",
+    id: "dry-eye",
+    name: "Dry Eye & Ocular Surface Disease",
+    kicker: "Ocular Surface",
+    summary:
+      "Chronic dry eye is an inflammatory disease of the tear film and ocular surface, not simply a shortage of tears — which is why drops alone so often fall short.",
+    points: [
+      "Tear film and ocular surface testing",
+      "Treatment aimed at the underlying inflammation",
+      "Management of chronic and post-surgical dryness",
+    ],
   },
   {
-    name: "Glaucoma Management",
-    detail: "Early detection, medical therapy, and surgical options.",
-  },
-  {
-    name: "Dry Eye & Ocular Surface",
-    detail: "Diagnosis and treatment of chronic ocular surface disease.",
-  },
-  {
-    name: "Comprehensive Eye Exams",
-    detail: "Adult and pediatric vision and medical eye evaluations.",
-  },
-  {
-    name: "Optical Boutique",
-    detail: "Prescription eyewear and contact lenses on site.",
+    id: "retina",
+    name: "Medical Retina & Injections",
+    kicker: "Retina",
+    summary:
+      "Medical management of the retina — macular degeneration, diabetic retinopathy, macular oedema and related disease, including in-office intravitreal injection therapy.",
+    points: [
+      "Macular degeneration, wet and dry",
+      "Diabetic retinopathy and macular oedema",
+      "In-office intravitreal injections",
+      "Retinal imaging and monitoring over time",
+    ],
   },
 ] as const;
 
@@ -277,7 +282,7 @@ export const faqs = [
   },
   {
     q: "How long is recovery?",
-    a: "Most LASIK patients return to normal activity within one to two days. Cataract vision typically clears over the first several days. Cross-linking involves a protective contact lens for a few days. You will have a written recovery plan and direct access to us throughout.",
+    a: "Recovery is different for everyone, and it depends on the procedure, your eyes and your general health — so we will not put a number on it here. What we will do is give you a written recovery plan at your consultation, tell you honestly what to expect in your case, and stay reachable throughout. If anything worries you afterwards, you call us and we see you.",
   },
   {
     q: "Will I be awake?",
