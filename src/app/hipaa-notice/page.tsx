@@ -13,21 +13,8 @@ export default function HipaaNoticePage() {
     <LegalPage
       title="HIPAA Notice of Privacy Practices"
       intro="This notice describes how medical information about you may be used and disclosed, and how you can get access to this information. Please review it carefully."
-      updated="TO BE CONFIRMED BY THE PRACTICE"
+      updated="September 1, 2026"
     >
-      <div className="mb-10 rounded-2xl border-2 border-amber-500/60 bg-amber-50 p-6 text-[0.95rem] leading-relaxed text-amber-950">
-        <strong className="block text-amber-950">
-          Draft — requires review before publication
-        </strong>
-        <p className="mt-2 mb-0">
-          A Notice of Privacy Practices is a federally mandated document under
-          45 CFR §164.520. This draft follows the required structure, but it
-          must be reviewed and approved by the practice&rsquo;s Privacy Officer
-          and healthcare counsel, and completed with the effective date and
-          Privacy Officer contact details, before it goes live.
-        </p>
-      </div>
-
       <h2>Our commitment</h2>
       <p>
         {practice.name} is required by law to maintain the privacy of your

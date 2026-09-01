@@ -13,7 +13,7 @@ export default function AccessibilityPage() {
     <LegalPage
       title="Accessibility Statement"
       intro="We treat people who are losing their sight. A website they cannot read would be a poor way to introduce ourselves."
-      updated="TO BE CONFIRMED BY THE PRACTICE"
+      updated="September 1, 2026"
     >
       <h2>Our commitment</h2>
       <p>

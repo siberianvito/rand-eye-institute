@@ -14,19 +14,8 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       title="Privacy Policy"
       intro="How this website collects and uses information, and the choices you have. Health information held by the practice is governed separately by our HIPAA Notice of Privacy Practices."
-      updated="TO BE CONFIRMED BY THE PRACTICE"
+      updated="September 1, 2026"
     >
-      <div className="mb-10 rounded-2xl border-2 border-amber-500/60 bg-amber-50 p-6 text-[0.95rem] leading-relaxed text-amber-950">
-        <strong className="block text-amber-950">
-          Draft — requires review before publication
-        </strong>
-        <p className="mt-2 mb-0">
-          This is a working draft, not legal advice. It must be reviewed by the
-          practice&rsquo;s counsel and reconciled with what the site and CRM
-          actually collect before it is published.
-        </p>
-      </div>
-
       <h2>Scope</h2>
       <p>
         This policy covers information collected through this website. Protected

@@ -14,19 +14,8 @@ export default function TermsOfServicePage() {
     <LegalPage
       title="Terms of Service"
       intro="The terms that govern your use of this website. By using the site, you agree to them."
-      updated="TO BE CONFIRMED BY THE PRACTICE"
+      updated="September 1, 2026"
     >
-      <div className="mb-10 rounded-2xl border-2 border-amber-500/60 bg-amber-50 p-6 text-[0.95rem] leading-relaxed text-amber-950">
-        <strong className="block text-amber-950">
-          Draft — requires review before publication
-        </strong>
-        <p className="mt-2 mb-0">
-          This is a working draft, not legal advice. Liability, warranty and
-          governing-law terms in particular must be reviewed by the
-          practice&rsquo;s counsel before publication.
-        </p>
-      </div>
-
       <h2>No medical advice</h2>
       <p>
         The content on this site is general information about eye conditions and
