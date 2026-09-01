@@ -7,11 +7,11 @@ import { practice, years } from "@/lib/data";
 
 export const metadata: Metadata = {
   // The root layout appends "| Rand Eye Institute" via its title template.
-  title: "Request a Consultation & Contact",
-  description: `Request a consultation for LASIK, cataract surgery, or corneal cross-linking at Rand Eye Institute in ${practice.address.city}, FL. Call ${practice.phone} or send us a message.`,
+  title: "Request an Appointment & Contact",
+  description: `Request an appointment for LASIK, cataract surgery, or corneal cross-linking at Rand Eye Institute in ${practice.address.city}, FL. Call ${practice.phone} or send us a message.`,
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Request a Consultation | Rand Eye Institute",
+    title: "Request an Appointment | Rand Eye Institute",
     description:
       "Book a full diagnostic workup with the Rand physicians in Deerfield Beach.",
     url: "/contact",
@@ -44,8 +44,8 @@ export default function ContactPage() {
 
           <Reveal delay={80}>
             <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-normal">
-              Request a
-              <span className="brand-text-gradient italic"> consultation.</span>
+              Request an
+              <span className="brand-text-gradient italic"> appointment.</span>
             </h1>
           </Reveal>
 

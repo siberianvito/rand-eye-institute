@@ -19,7 +19,7 @@ export default function Consult() {
           {/* Pitch + practice details */}
           <div>
             <Reveal>
-              <p className="eyebrow">Request a consultation</p>
+              <p className="eyebrow">Request an appointment</p>
             </Reveal>
             <Reveal delay={80}>
               <h2 className="mt-4 text-[clamp(2.25rem,4.6vw,3.5rem)]">

@@ -125,7 +125,7 @@ export default function Nav() {
                 className="brand-gradient btn-alive shrink-0 rounded-full px-4 py-2.5 text-[0.82rem] font-semibold whitespace-nowrap text-white [--sweep-delay:1.6s] sm:px-5 sm:text-[0.9rem] lg:px-6 lg:text-[0.95rem] cursor-pointer"
               >
                 <span className="sm:hidden">Book Now</span>
-                <span className="hidden sm:inline">Request Consultation</span>
+                <span className="hidden sm:inline">Request Appointment</span>
               </Link>
 
               <button
@@ -192,7 +192,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="brand-gradient btn-alive rounded-full px-6 py-4 text-center font-semibold text-white cursor-pointer"
             >
-              Request Consultation
+              Request Appointment
             </Link>
             <a
               href={practice.phoneHref}

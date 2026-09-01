@@ -1,26 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { asset } from "@/lib/asset";
+import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
+import { asset } from "@/lib/asset";
+import { CONSULT_PATH, visionConditions } from "@/lib/data";
 import Reveal from "./Reveal";
+import { IconArrow } from "./Icons";
 
 /**
- * Drag-to-compare clarity slider. The emotional pitch of the whole site:
- * the visitor physically pulls their own vision back into focus.
+ * Drag-to-compare vision simulator.
  *
- * Keyboard and screen-reader users get the same control through a real
- * range input rather than a mouse-only affordance.
+ * The visitor picks a condition and pulls their own sight back into focus.
+ * Each simulation is an approximation applied as CSS filters and overlays to
+ * the "before" layer — illustrative, not diagnostic, and labelled as such.
+ *
+ * Keyboard and screen-reader users get the same control through a real range
+ * input rather than a mouse-only affordance.
  */
 export default function ClarityReveal() {
   const [pos, setPos] = useState(38);
+  const [conditionId, setConditionId] = useState<string>(visionConditions[0].id);
   const frameRef = useRef<HTMLDivElement>(null);
+
+  const condition =
+    visionConditions.find((c) => c.id === conditionId) ?? visionConditions[0];
 
   const setFromClientX = useCallback((clientX: number) => {
     const rect = frameRef.current?.getBoundingClientRect();
     if (!rect) return;
-    const next = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.min(100, Math.max(0, next)));
+    setPos(Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100)));
   }, []);
 
   /**
@@ -32,14 +41,12 @@ export default function ClarityReveal() {
     (e: React.PointerEvent) => {
       e.preventDefault();
       setFromClientX(e.clientX);
-
       const onMove = (ev: PointerEvent) => setFromClientX(ev.clientX);
       const onUp = () => {
         window.removeEventListener("pointermove", onMove);
         window.removeEventListener("pointerup", onUp);
         window.removeEventListener("pointercancel", onUp);
       };
-
       window.addEventListener("pointermove", onMove);
       window.addEventListener("pointerup", onUp);
       window.addEventListener("pointercancel", onUp);
@@ -48,11 +55,11 @@ export default function ClarityReveal() {
   );
 
   return (
-    <section className="bg-surface py-24 lg:py-32">
+    <section id="vision" className="scroll-mt-24 bg-surface py-24 lg:py-32">
       <div className="shell">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <p className="eyebrow">The difference</p>
+            <p className="eyebrow">See it for yourself</p>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-4 text-[clamp(2.25rem,4.6vw,3.5rem)]">
@@ -62,15 +69,43 @@ export default function ClarityReveal() {
           </Reveal>
           <Reveal delay={150}>
             <p className="mt-6 text-lg text-slate-body">
-              Drag to move between a cataract-clouded world and a corrected one.
-              For most of our patients, this is not a metaphor — it is the week
-              of their procedure.
+              Choose a condition, then drag to move between how it can look and
+              a corrected view. For many of our patients this is not a
+              metaphor — it is the week of their procedure.
             </p>
           </Reveal>
         </div>
 
-        <Reveal delay={220}>
-          <figure className="mt-14">
+        {/* Condition picker */}
+        <Reveal delay={200}>
+          <div
+            role="group"
+            aria-label="Choose a vision condition to simulate"
+            className="mt-10 flex flex-wrap justify-center gap-2.5"
+          >
+            {visionConditions.map((c) => {
+              const active = c.id === conditionId;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => setConditionId(c.id)}
+                  aria-pressed={active}
+                  className={`rounded-full border px-5 py-2.5 text-[0.9rem] font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                    active
+                      ? "brand-gradient border-transparent text-white shadow-glow"
+                      : "border-line-strong bg-card text-ink hover:border-blue-brand hover:text-blue-brand"
+                  }`}
+                >
+                  {c.label}
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <Reveal delay={260}>
+          <figure className="mt-8">
             <div
               ref={frameRef}
               onPointerDown={onPointerDown}
@@ -83,41 +118,40 @@ export default function ClarityReveal() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 1200px"
                 className="object-cover"
-                priority={false}
               />
 
-              {/* Uncorrected vision — clipped to the left of the handle.
-                  Blur plus the yellow-grey cast and lost saturation that
-                  actually characterise a cataract, not blur alone. */}
+              {/* Affected vision — clipped to the left of the handle */}
               <div
                 className="absolute inset-0"
                 style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
                 aria-hidden
               >
                 <Image
+                  key={condition.id}
                   src={asset("/flowers.jpg")}
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 1200px"
-                  className="scale-105 object-cover blur-[9px] brightness-[0.9] saturate-[0.5] sepia-[0.3] contrast-[0.88]"
+                  className={`object-cover transition-all duration-500 ${condition.filter}`}
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(190,180,150,0.34)_0%,rgba(120,120,120,0.22)_70%)]" />
+                {condition.overlay && (
+                  <div className={`absolute inset-0 ${condition.overlay}`} />
+                )}
               </div>
 
-              {/* Labels */}
               <span
-                className={`absolute top-5 left-5 rounded-full bg-ink/70 px-4 py-1.5 text-[0.72rem] font-semibold tracking-[0.16em] text-white uppercase backdrop-blur transition-opacity duration-300 ${
-                  pos > 16 ? "opacity-100" : "opacity-0"
+                className={`absolute top-5 left-5 rounded-full bg-ink/75 px-4 py-1.5 text-[0.72rem] font-semibold tracking-[0.14em] text-white uppercase backdrop-blur transition-opacity duration-300 ${
+                  pos > 22 ? "opacity-100" : "opacity-0"
                 }`}
               >
-                Before
+                {condition.label}
               </span>
               <span
                 className={`absolute top-5 right-5 rounded-full bg-blue-brand/85 px-4 py-1.5 text-[0.72rem] font-semibold tracking-[0.16em] text-white uppercase backdrop-blur transition-opacity duration-300 ${
                   pos < 84 ? "opacity-100" : "opacity-0"
                 }`}
               >
-                After
+                Corrected
               </span>
 
               {/* Handle */}
@@ -142,10 +176,10 @@ export default function ClarityReveal() {
               </div>
             </div>
 
-            {/* Accessible control — the same slider, reachable by keyboard */}
+            {/* The same control, reachable by keyboard */}
             <label className="mt-6 block">
               <span className="sr-only">
-                Compare clouded and corrected vision
+                Compare {condition.label} vision with corrected vision
               </span>
               <input
                 type="range"
@@ -153,17 +187,32 @@ export default function ClarityReveal() {
                 max={100}
                 value={Math.round(pos)}
                 onChange={(e) => setPos(Number(e.target.value))}
-                aria-valuetext={`${Math.round(pos)}% clouded vision shown`}
+                aria-valuetext={`${Math.round(pos)}% ${condition.label} view shown`}
                 className="h-2 w-full cursor-pointer appearance-none rounded-full bg-surface-deep accent-blue-brand"
               />
             </label>
 
-            <figcaption className="mt-5 text-center text-[0.9rem] text-grey-brand">
-              Illustrative simulation of cataract-clouded vision. Individual
-              results vary — your consultation determines what is achievable for
-              your eyes.
+            <figcaption className="mx-auto mt-6 max-w-2xl text-center">
+              <p className="text-slate-body">{condition.caption}</p>
+              <p className="mt-3 text-[0.85rem] text-grey-brand">
+                An illustrative simulation, not a diagnosis. How a condition
+                affects your sight — and what can be done about it — is
+                determined by an examination.
+              </p>
             </figcaption>
           </figure>
+        </Reveal>
+
+        <Reveal delay={320}>
+          <div className="mt-10 text-center">
+            <Link
+              href={CONSULT_PATH}
+              className="brand-gradient btn-alive group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[0.95rem] font-semibold whitespace-nowrap text-white sm:px-7 [--sweep-delay:1.2s] cursor-pointer"
+            >
+              Request Appointment
+              <IconArrow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -26,13 +26,13 @@ export default function GhlForm({
     >
       <iframe
         src={`https://api.leadconnectorhq.com/widget/form/${GHL_FORM_ID}`}
-        title="Request a consultation at Rand Eye Institute"
+        title="Request an appointment at Rand Eye Institute"
         id={frameId}
         data-layout='{"id":"INLINE"}'
         data-trigger-type="alwaysShow"
         data-activation-type="alwaysActivated"
         data-deactivation-type="neverDeactivate"
-        data-form-name="Request a Consultation"
+        data-form-name="Request an Appointment"
         data-form-id={GHL_FORM_ID}
         data-layout-iframe-id={frameId}
         data-height="700"

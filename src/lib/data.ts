@@ -179,6 +179,51 @@ export const clinicalTrials = [
   },
 ] as const;
 
+/**
+ * Vision simulations for the drag-to-compare panel.
+ *
+ * `filter` and `overlay` are Tailwind classes applied to the "before" layer.
+ * Each is an illustrative approximation of how the condition is commonly
+ * described — not a diagnostic tool, and the panel says so beneath it.
+ */
+export const visionConditions = [
+  {
+    id: "cataract",
+    label: "Cataract",
+    caption:
+      "A clouding lens scatters light: colours fade and yellow, contrast drops, and bright light causes glare.",
+    filter: "blur-[9px] brightness-[0.9] saturate-[0.5] sepia-[0.3] contrast-[0.88] scale-105",
+    overlay:
+      "bg-[radial-gradient(circle_at_50%_45%,rgba(214,196,140,0.42)_0%,rgba(150,140,115,0.3)_70%)]",
+  },
+  {
+    id: "refractive",
+    label: "Nearsighted",
+    caption:
+      "A refractive error means light focuses in front of the retina instead of on it — detail softens evenly across the whole scene.",
+    filter: "blur-[11px] scale-105",
+    overlay: "",
+  },
+  {
+    id: "amd",
+    label: "Macular Degeneration",
+    caption:
+      "Damage to the macula affects the centre of your sight. Peripheral vision is often kept, but whatever you look at directly is obscured or distorted.",
+    filter: "saturate-[0.85]",
+    overlay:
+      "bg-[radial-gradient(circle_at_50%_48%,rgba(40,36,30,0.94)_0%,rgba(60,54,45,0.82)_16%,rgba(90,84,72,0.4)_26%,transparent_38%)]",
+  },
+  {
+    id: "retinopathy",
+    label: "Diabetic Retinopathy",
+    caption:
+      "Damaged retinal vessels leak and bleed, throwing dark floaters and blank patches across the field, with blurring where the macula swells.",
+    filter: "blur-[3px] saturate-[0.8] contrast-[0.92]",
+    overlay:
+      "bg-[radial-gradient(circle_at_28%_34%,rgba(28,24,20,0.9)_0%,transparent_13%),radial-gradient(circle_at_63%_26%,rgba(28,24,20,0.82)_0%,transparent_9%),radial-gradient(circle_at_44%_62%,rgba(28,24,20,0.88)_0%,transparent_15%),radial-gradient(circle_at_76%_58%,rgba(28,24,20,0.8)_0%,transparent_11%),radial-gradient(circle_at_18%_72%,rgba(28,24,20,0.85)_0%,transparent_10%),radial-gradient(circle_at_86%_80%,rgba(28,24,20,0.75)_0%,transparent_8%)]",
+  },
+] as const;
+
 export const doctors = [
   {
     name: "William J. Rand, M.D.",

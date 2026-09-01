@@ -28,7 +28,7 @@ export default function StickyCall() {
       }`}
     >
       {/* Matched heights, centred labels, and the CTA given enough of the row
-          that "Request Consultation" stays on one line down to 320px. */}
+          that "Request Appointment" stays on one line down to 320px. */}
       <div className="flex items-stretch gap-2.5">
         <a
           href={practice.phoneHref}
@@ -41,7 +41,7 @@ export default function StickyCall() {
           href="/contact"
           className="brand-gradient btn-alive flex h-13 flex-1 items-center justify-center rounded-full px-3 text-center text-[0.95rem] font-semibold whitespace-nowrap text-white cursor-pointer"
         >
-          Request Consultation
+          Request Appointment
         </Link>
       </div>
     </div>

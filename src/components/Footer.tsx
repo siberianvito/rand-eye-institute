@@ -99,7 +99,7 @@ export default function Footer() {
                   href="/contact"
                   className="text-white/70 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
                 >
-                  Request Consultation
+                  Request Appointment
                 </Link>
               </li>
             </ul>
