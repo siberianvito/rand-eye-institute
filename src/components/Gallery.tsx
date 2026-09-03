@@ -83,6 +83,9 @@ export default function Gallery() {
                   className="h-auto w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                 />
                 <span className="absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/10" />
+                <span className="block px-4 py-3 text-left text-[0.85rem] leading-snug font-medium text-ink-soft">
+                  {photo.caption}
+                </span>
               </button>
             ))}
           </div>
@@ -136,9 +139,14 @@ export default function Gallery() {
               sizes="90vw"
               className="mx-auto max-h-[76vh] w-auto rounded-2xl object-contain"
             />
-            <figcaption className="mx-auto mt-4 max-w-2xl text-center text-[0.9rem] text-white/70">
-              {open.alt}
-              <span className="mt-1 block text-white/45">
+            <figcaption className="mx-auto mt-4 max-w-2xl text-center">
+              <span className="block text-[1.05rem] font-semibold text-white">
+                {open.caption}
+              </span>
+              <span className="mt-1.5 block text-[0.9rem] text-white/60">
+                {open.alt}
+              </span>
+              <span className="mt-2 block text-[0.85rem] text-white/40">
                 {openAt! + 1} of {count}
               </span>
             </figcaption>
