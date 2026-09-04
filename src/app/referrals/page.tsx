@@ -90,7 +90,9 @@ export default function ReferralsPage() {
       >
         <div className="shell">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-            <div>
+            {/* The hosted form runs to ~3,000px, so the left column rides
+                along with it rather than stranding a column of white. */}
+            <div className="lg:sticky lg:top-32 lg:self-start">
               <Reveal>
                 <p className="eyebrow">What you can expect</p>
               </Reveal>
