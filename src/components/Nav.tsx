@@ -79,7 +79,7 @@ export default function Nav() {
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               aria-expanded={open}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand xl:hidden cursor-pointer"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand lg:hidden cursor-pointer"
             >
               <IconMenu className="h-5.5 w-5.5" />
             </button>
@@ -102,7 +102,7 @@ export default function Nav() {
               <Wordmark compact iconOnly />
             </Link>
 
-            <nav aria-label="Primary" className="hidden xl:block">
+            <nav aria-label="Primary" className="hidden lg:block">
               <ul className="flex items-center gap-5 2xl:gap-6">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -122,7 +122,7 @@ export default function Nav() {
             <a
               href={practice.phoneHref}
               className={`inline-flex shrink-0 items-center gap-1.5 text-[0.82rem] font-semibold whitespace-nowrap text-white transition-colors duration-200 hover:text-cyan-brand sm:gap-2 sm:text-[0.9rem] lg:text-[0.95rem] cursor-pointer ${
-                scrolled ? "xl:inline-flex" : "xl:hidden"
+                scrolled ? "lg:inline-flex" : "lg:hidden"
               }`}
             >
               <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
@@ -155,7 +155,7 @@ export default function Nav() {
                 onClick={() => setOpen(true)}
                 aria-label="Open menu"
                 aria-expanded={open}
-                className={`h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand xl:hidden cursor-pointer ${
+                className={`h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand lg:hidden cursor-pointer ${
                   scrolled ? "grid" : "hidden"
                 }`}
               >
@@ -168,7 +168,7 @@ export default function Nav() {
 
       {/* ---------- Mobile sheet ---------- */}
       <div
-        className={`fixed inset-0 z-60 xl:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-60 lg:hidden ${open ? "" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div

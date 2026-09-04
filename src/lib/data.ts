@@ -38,7 +38,7 @@ export const years = {
  */
 export const stats = [
   { value: 50, suffix: "+", label: "Years of surgical expertise" },
-  { value: 136000, suffix: "+", label: "Surgeries performed" },
+  { value: 236000, suffix: "+", label: "Surgeries performed" },
   { value: 35, suffix: "", label: "Years of Joint Commission accreditation" },
   { value: 24000, suffix: "", label: "Square feet dedicated to eye care" },
 ] as const;
@@ -432,9 +432,7 @@ export const navLinks = [
   { label: "Procedures", href: "/#procedures" },
   { label: "Why Rand", href: "/#why-rand" },
   { label: "Physicians", href: "/#physicians" },
-  { label: "Technology", href: "/#technology" },
   { label: "Research", href: "/#research" },
-  { label: "Questions", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
