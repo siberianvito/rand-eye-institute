@@ -15,10 +15,14 @@ export default function Wordmark({
   /** Drops the lettering on narrow screens, where the row also has to carry
       the phone number, the CTA and the menu button. */
   iconOnlyOnMobile = false,
+  /** Drops the lettering outright — the scrolled nav strip has to fit the
+      links, the phone, both buttons and still clear the container. */
+  iconOnly = false,
   className = "",
 }: {
   compact?: boolean;
   iconOnlyOnMobile?: boolean;
+  iconOnly?: boolean;
   className?: string;
 }) {
   return (
@@ -30,15 +34,19 @@ export default function Wordmark({
         height={256}
         priority
         className={`w-auto shrink-0 rounded-[6px] shadow-[0_2px_10px_rgba(0,0,0,0.35)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          compact ? "h-9" : "h-10 sm:h-14 lg:h-17"
+          compact ? "h-9" : "h-10 sm:h-14 xl:h-17"
         }`}
       />
-      <span className={`flex-col ${iconOnlyOnMobile ? "hidden sm:flex" : "flex"}`}>
+      <span
+        className={`flex-col ${
+          iconOnly ? "hidden" : iconOnlyOnMobile ? "hidden sm:flex" : "flex"
+        }`}
+      >
         <span
           className={`font-display leading-none whitespace-nowrap text-white transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             compact
               ? "text-[1.05rem] tracking-[0.2em]"
-              : "text-[0.92rem] tracking-[0.15em] sm:text-[1.5rem] sm:tracking-[0.22em] lg:text-[2.15rem] lg:tracking-[0.24em]"
+              : "text-[0.92rem] tracking-[0.15em] sm:text-[1.5rem] sm:tracking-[0.22em] xl:text-[2.15rem] xl:tracking-[0.24em]"
           }`}
         >
           RAND EYE INSTITUTE
@@ -47,7 +55,7 @@ export default function Wordmark({
           className={`font-sans font-medium whitespace-nowrap text-cyan-brand/85 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             compact
               ? "mt-0.5 text-[0.5rem] tracking-[0.24em]"
-              : "mt-1 text-[0.45rem] tracking-[0.18em] sm:mt-1.5 sm:text-[0.58rem] sm:tracking-[0.26em] lg:text-[0.72rem] lg:tracking-[0.3em]"
+              : "mt-1 text-[0.45rem] tracking-[0.18em] sm:mt-1.5 sm:text-[0.58rem] sm:tracking-[0.26em] xl:text-[0.72rem] xl:tracking-[0.3em]"
           }`}
         >
           {practice.tagline.toUpperCase()}

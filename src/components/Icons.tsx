@@ -120,3 +120,11 @@ export const IconPulse = ({ className }: IconProps) => (
     <path d="M2.5 12h4l2.2-5.4 3.4 11L14.6 12h6.9" />
   </svg>
 );
+
+export const IconStethoscope = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 12 0V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3" />
+    <path d="M8 15v1a6 6 0 0 0 12 0v-4" />
+    <circle cx="20" cy="10" r="2" />
+  </svg>
+);

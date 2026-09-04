@@ -102,6 +102,14 @@ export default function Footer() {
                   Request Appointment
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/referrals"
+                  className="text-white/70 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+                >
+                  Physician Referrals
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

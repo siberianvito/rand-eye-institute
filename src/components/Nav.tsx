@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { navLinks, practice } from "@/lib/data";
-import { IconClose, IconMenu, IconPhone } from "./Icons";
+import { IconClose, IconMenu, IconPhone, IconStethoscope } from "./Icons";
 import Wordmark from "./Wordmark";
 
 export default function Nav() {
@@ -49,27 +49,37 @@ export default function Nav() {
               <Wordmark />
             </Link>
 
-            <a
-              href={practice.phoneHref}
-              className="hidden shrink-0 text-right transition-colors duration-200 hover:text-cyan-brand sm:block cursor-pointer"
-            >
-              <span className="block text-[0.68rem] font-semibold tracking-[0.24em] text-cyan-brand/80 uppercase">
-                Call us
-              </span>
-              {/* Sans, not the display serif — Cormorant's old-style figures
-                  render the digits at mixed heights and read as fuzzy at this
-                  size on a dark ground. */}
-              <span className="mt-1 block font-sans text-[1.55rem] leading-none font-bold tracking-tight text-white tabular-nums lg:text-[1.9rem]">
-                {practice.phone}
-              </span>
-            </a>
+            <div className="hidden shrink-0 items-center gap-5 sm:flex lg:gap-7">
+              <Link
+                href="/referrals"
+                className="hidden items-center gap-2 rounded-full border border-white/25 px-4 py-2.5 text-[0.82rem] font-semibold whitespace-nowrap text-white/90 transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand lg:inline-flex lg:text-[0.88rem] cursor-pointer"
+              >
+                <IconStethoscope className="h-4.5 w-4.5 text-cyan-brand" />
+                Physician Referrals
+              </Link>
+
+              <a
+                href={practice.phoneHref}
+                className="block shrink-0 text-right transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+              >
+                <span className="block text-[0.68rem] font-semibold tracking-[0.24em] text-cyan-brand/80 uppercase">
+                  Call us
+                </span>
+                {/* Sans, not the display serif — Cormorant's old-style figures
+                    render the digits at mixed heights and read as fuzzy at this
+                    size on a dark ground. */}
+                <span className="mt-1 block font-sans text-[1.55rem] leading-none font-bold tracking-tight text-white tabular-nums lg:text-[1.9rem]">
+                  {practice.phone}
+                </span>
+              </a>
+            </div>
 
             <button
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               aria-expanded={open}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand lg:hidden cursor-pointer"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand xl:hidden cursor-pointer"
             >
               <IconMenu className="h-5.5 w-5.5" />
             </button>
@@ -78,7 +88,7 @@ export default function Nav() {
 
         {/* ---------- Nav strip ---------- */}
         <div className="border-t border-white/10 bg-ink-deep/95 backdrop-blur-xl">
-          <div className="shell flex items-center justify-between gap-6 py-2.5">
+          <div className="shell flex items-center justify-between gap-5 py-2.5">
             {/* Only present once the brand bar has rolled up */}
             <Link
               href="/#top"
@@ -89,11 +99,11 @@ export default function Nav() {
                   : "pointer-events-none max-w-0 opacity-0"
               }`}
             >
-              <Wordmark compact iconOnlyOnMobile />
+              <Wordmark compact iconOnly />
             </Link>
 
-            <nav aria-label="Primary" className="hidden lg:block">
-              <ul className="flex items-center gap-6 xl:gap-8">
+            <nav aria-label="Primary" className="hidden xl:block">
+              <ul className="flex items-center gap-5 2xl:gap-6">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -112,14 +122,26 @@ export default function Nav() {
             <a
               href={practice.phoneHref}
               className={`inline-flex shrink-0 items-center gap-1.5 text-[0.82rem] font-semibold whitespace-nowrap text-white transition-colors duration-200 hover:text-cyan-brand sm:gap-2 sm:text-[0.9rem] lg:text-[0.95rem] cursor-pointer ${
-                scrolled ? "lg:inline-flex" : "lg:hidden"
+                scrolled ? "xl:inline-flex" : "xl:hidden"
               }`}
             >
               <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
               {practice.phone}
             </a>
 
-            <div className="ml-auto flex items-center gap-3">
+            <div className="ml-auto flex items-center gap-3 lg:gap-4">
+              {/* Takes over from the brand-bar pill once that bar rolls up, so
+                  only one referral button is ever on screen. */}
+              <Link
+                href="/referrals"
+                className={`hidden items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-[0.88rem] font-semibold whitespace-nowrap text-white/85 transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand cursor-pointer ${
+                  scrolled ? "xl:inline-flex" : "xl:hidden"
+                }`}
+              >
+                <IconStethoscope className="h-4.5 w-4.5 text-cyan-brand" />
+                Referrals
+              </Link>
+
               <Link
                 href="/contact"
                 className="brand-gradient btn-alive shrink-0 rounded-full px-4 py-2.5 text-[0.82rem] font-semibold whitespace-nowrap text-white [--sweep-delay:1.6s] sm:px-5 sm:text-[0.9rem] lg:px-6 lg:text-[0.95rem] cursor-pointer"
@@ -133,7 +155,7 @@ export default function Nav() {
                 onClick={() => setOpen(true)}
                 aria-label="Open menu"
                 aria-expanded={open}
-                className={`h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand lg:hidden cursor-pointer ${
+                className={`h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand xl:hidden cursor-pointer ${
                   scrolled ? "grid" : "hidden"
                 }`}
               >
@@ -146,7 +168,7 @@ export default function Nav() {
 
       {/* ---------- Mobile sheet ---------- */}
       <div
-        className={`fixed inset-0 z-60 lg:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-60 xl:hidden ${open ? "" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div
@@ -187,6 +209,14 @@ export default function Nav() {
           </ul>
 
           <div className="mt-auto flex flex-col gap-3 pt-8">
+            <Link
+              href="/referrals"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-4 font-semibold text-white cursor-pointer"
+            >
+              <IconStethoscope className="h-5 w-5 text-cyan-brand" />
+              Physician Referrals
+            </Link>
             <Link
               href="/contact"
               onClick={() => setOpen(false)}

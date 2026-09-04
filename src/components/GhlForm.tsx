@@ -6,18 +6,28 @@ import { IconShield } from "./Icons";
  * all managed in GHL, so submissions reach the CRM with no credential on our
  * side. Used on both the contact page and the home page intro.
  */
-const GHL_FORM_ID = "hZrXknw6FqkDh58VKX2P";
+const APPOINTMENT_FORM_ID = "hZrXknw6FqkDh58VKX2P";
+export const REFERRAL_FORM_ID = "NtODoqkOEeg5ONrWsENC";
 
 export default function GhlForm({
   /** Instances need unique ids — form_embed.js keys its resizing off them. */
   instance = "default",
+  formId = APPOINTMENT_FORM_ID,
+  title = "Request an appointment at Rand Eye Institute",
+  formName = "Request an Appointment",
+  note,
   minHeight = "min-h-[700px]",
   className = "",
 }: {
   instance?: string;
+  formId?: string;
+  title?: string;
+  formName?: string;
+  note?: string;
   minHeight?: string;
   className?: string;
 }) {
+  const GHL_FORM_ID = formId;
   const frameId = `inline-${GHL_FORM_ID}-${instance}`;
 
   return (
@@ -26,13 +36,13 @@ export default function GhlForm({
     >
       <iframe
         src={`https://api.leadconnectorhq.com/widget/form/${GHL_FORM_ID}`}
-        title="Request an appointment at Rand Eye Institute"
+        title={title}
         id={frameId}
         data-layout='{"id":"INLINE"}'
         data-trigger-type="alwaysShow"
         data-activation-type="alwaysActivated"
         data-deactivation-type="neverDeactivate"
-        data-form-name="Request an Appointment"
+        data-form-name={formName}
         data-form-id={GHL_FORM_ID}
         data-layout-iframe-id={frameId}
         data-height="700"
@@ -42,8 +52,8 @@ export default function GhlForm({
 
       <p className="mt-4 flex items-start gap-2.5 px-1 text-[0.82rem] leading-relaxed text-grey-brand">
         <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
-        Your information is used only to contact you about your care. Please do
-        not send sensitive medical details through this form.
+        {note ??
+          "Your information is used only to contact you about your care. Please do not send sensitive medical details through this form."}
       </p>
 
       {/* Auto-sizes the embedded form to its content */}
