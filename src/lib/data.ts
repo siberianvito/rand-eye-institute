@@ -9,8 +9,8 @@ export const practice = {
   tagline: "Excellence in Ophthalmology",
   mission: "The Best Vision Possible",
   founded: 1979,
-  phone: "(954) 782-1700",
-  phoneHref: "tel:+19547821700",
+  phone: "(754) 315-5311",
+  phoneHref: "tel:+17543155311",
   address: {
     street: "5 W Sample Road",
     city: "Deerfield Beach",

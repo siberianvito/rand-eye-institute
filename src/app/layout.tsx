@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Rand Eye Institute",
   },
   description:
-    "South Florida's leader in custom no-flap LASIK, laser cataract surgery, and corneal cross-linking. Serving Deerfield Beach and Broward County for over 50 years. Call (954) 782-1700.",
+    "South Florida's leader in custom no-flap LASIK, laser cataract surgery, and corneal cross-linking. Serving Deerfield Beach and Broward County for over 50 years. Call (754) 315-5311.",
   keywords: [
     "LASIK Deerfield Beach",
     "cataract surgery Broward County",
