@@ -27,8 +27,13 @@ const COMMITMENTS = [
 export default function ReferralsPage() {
   return (
     <>
-      {/* Page header — clears the fixed brand bar + nav strip. */}
-      <section className="relative overflow-hidden border-b border-line bg-linear-to-b from-surface-tint via-surface to-surface pt-44 pb-16 lg:pt-52 lg:pb-20">
+      {/* Header and form share one grid on desktop, so the form starts level
+          with the headline instead of leaving the right side empty. On phones
+          it drops below the whole left column. */}
+      {/* No overflow-hidden here: it would make this the scroll container and
+          break the sticky column. The decorative blob is clipped by its own
+          wrapper instead. */}
+      <section className="relative border-b border-line bg-linear-to-b from-surface-tint via-surface to-surface pt-44 pb-20 lg:pt-52 lg:pb-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="iris-a absolute -top-[40%] -right-[10%] h-[56vw] max-h-[760px] w-[56vw] max-w-[760px] rounded-full bg-[radial-gradient(circle,rgba(0,160,224,0.28)_0%,transparent_64%)]" />
         </div>
@@ -47,119 +52,123 @@ export default function ReferralsPage() {
             </nav>
           </Reveal>
 
-          <Reveal delay={80}>
-            <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-normal">
-              Physician
-              <span className="brand-text-gradient italic"> referrals.</span>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={150}>
-            <p className="mt-6 max-w-2xl text-lg text-slate-body lg:text-xl">
-              Send us the patient and the question. They are seen by one of the
-              Rand physicians, treated in our own surgical pavilion, and
-              returned to your care with a written report.
-            </p>
-          </Reveal>
-
-          <Reveal delay={220}>
-            <div className="mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center">
-              <a
-                href={practice.phoneHref}
-                className="brand-gradient btn-alive inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4.5 text-base font-semibold whitespace-nowrap text-white sm:px-8 cursor-pointer"
-              >
-                <IconPhone className="h-5 w-5" />
-                {practice.phone}
-              </a>
-              <a
-                href="#referral-form"
-                className="btn-outline-alive inline-flex items-center justify-center gap-2.5 rounded-full border border-line-strong bg-card/80 px-8 py-4.5 text-base font-semibold text-ink backdrop-blur hover:text-blue-brand cursor-pointer"
-              >
-                Send a referral
-                <IconArrow className="h-5 w-5" />
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Commitments + form */}
-      <section
-        id="referral-form"
-        className="relative scroll-mt-32 overflow-hidden bg-surface py-20 lg:py-24"
-      >
-        <div className="shell">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-            {/* The hosted form runs to ~3,000px, so the left column rides
-                along with it rather than stranding a column of white. */}
-            <div className="lg:sticky lg:top-32 lg:self-start">
-              <Reveal>
-                <p className="eyebrow">What you can expect</p>
-              </Reveal>
+          <div className="mt-8 grid gap-14 lg:mt-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+            <div>
               <Reveal delay={80}>
-                <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)]">
-                  Your patient
-                  <span className="brand-text-gradient italic"> comes back to you.</span>
-                </h2>
+                <h1 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-normal">
+                  Physician
+                  <span className="brand-text-gradient italic"> referrals.</span>
+                </h1>
               </Reveal>
+
               <Reveal delay={150}>
-                <p className="mt-6 text-lg text-slate-body">
-                  We are a referral practice, not a competitor. A patient sent
-                  here for cataract surgery, a retinal problem or a corneal
-                  question is treated for that and returned — we do not take
-                  over their routine care.
+                <p className="mt-6 text-lg text-slate-body lg:text-xl">
+                  Send us the patient and the question. They are seen by one of
+                  the Rand physicians, treated in our own surgical pavilion, and
+                  returned to your care with a written report.
                 </p>
               </Reveal>
 
-              <Reveal delay={210}>
-                <ul className="mt-9 flex flex-col gap-3.5">
-                  {COMMITMENTS.map((point) => (
-                    <li key={point} className="flex gap-3 text-ink-soft">
-                      <IconCheck className="mt-1 h-4.5 w-4.5 shrink-0 text-cyan-brand" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-
-              <Reveal delay={280}>
-                <a
-                  href={practice.phoneHref}
-                  className="group mt-12 block rounded-2xl border border-line bg-card px-6 py-6 transition-colors duration-200 hover:border-cyan-brand hover:bg-surface-deep cursor-pointer"
-                >
-                  <p className="flex items-center gap-2 text-[0.78rem] font-semibold tracking-[0.14em] text-grey-brand uppercase">
-                    <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
-                    Urgent referral?
-                  </p>
-                  <p className="mt-2 font-sans text-3xl font-bold tracking-tight text-ink tabular-nums transition-colors duration-200 group-hover:text-blue-brand">
+              <Reveal delay={220}>
+                <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+                  <a
+                    href={practice.phoneHref}
+                    className="brand-gradient btn-alive inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4.5 text-base font-semibold whitespace-nowrap text-white sm:px-8 cursor-pointer"
+                  >
+                    <IconPhone className="h-5 w-5" />
                     {practice.phone}
-                  </p>
-                  <p className="mt-2 text-[0.95rem] text-slate-body">
-                    Ask for the referral coordinator and we will arrange the
-                    visit while you are on the line.
-                  </p>
-                </a>
+                  </a>
+                  {/* Only worth showing where the form is further down the
+                      page — on desktop it sits right beside this. */}
+                  <a
+                    href="#referral-form"
+                    className="btn-outline-alive inline-flex items-center justify-center gap-2.5 rounded-full border border-line-strong bg-card/80 px-8 py-4.5 text-base font-semibold text-ink backdrop-blur hover:text-blue-brand lg:hidden cursor-pointer"
+                  >
+                    Send a referral
+                    <IconArrow className="h-5 w-5" />
+                  </a>
+                </div>
               </Reveal>
 
-              <Reveal delay={330}>
-                <p className="mt-8 flex items-start gap-2.5 text-[0.85rem] leading-relaxed text-grey-brand">
-                  <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
-                  Please send only what is needed to schedule and triage. Full
-                  records can follow through your usual secure channel.
-                </p>
+              <div className="mt-14 border-t border-line pt-12 lg:mt-16">
+                <Reveal>
+                  <p className="eyebrow">What you can expect</p>
+                </Reveal>
+                <Reveal delay={80}>
+                  <h2 className="mt-4 text-[clamp(1.9rem,3.4vw,2.75rem)]">
+                    Your patient
+                    <span className="brand-text-gradient italic">
+                      {" "}
+                      comes back to you.
+                    </span>
+                  </h2>
+                </Reveal>
+                <Reveal delay={150}>
+                  <p className="mt-6 text-lg text-slate-body">
+                    We are a referral practice, not a competitor. A patient sent
+                    here for cataract surgery, a retinal problem or a corneal
+                    question is treated for that and returned — we do not take
+                    over their routine care.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={210}>
+                  <ul className="mt-9 flex flex-col gap-3.5">
+                    {COMMITMENTS.map((point) => (
+                      <li key={point} className="flex gap-3 text-ink-soft">
+                        <IconCheck className="mt-1 h-4.5 w-4.5 shrink-0 text-cyan-brand" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              </div>
+
+              {/* Direct child of the stretched column, so it can ride the full
+                  height of the ~3,000px form rather than being stranded at the
+                  top. Sticky only travels inside its own parent. */}
+              <div className="lg:sticky lg:top-32">
+                <Reveal delay={280}>
+                  <a
+                    href={practice.phoneHref}
+                    className="group mt-12 block rounded-2xl border border-line bg-card px-6 py-6 transition-colors duration-200 hover:border-cyan-brand hover:bg-surface-deep cursor-pointer"
+                  >
+                    <p className="flex items-center gap-2 text-[0.78rem] font-semibold tracking-[0.14em] text-grey-brand uppercase">
+                      <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
+                      Urgent referral?
+                    </p>
+                    <p className="mt-2 font-sans text-3xl font-bold tracking-tight text-ink tabular-nums transition-colors duration-200 group-hover:text-blue-brand">
+                      {practice.phone}
+                    </p>
+                    <p className="mt-2 text-[0.95rem] text-slate-body">
+                      Ask for the referral coordinator and we will arrange the
+                      visit while you are on the line.
+                    </p>
+                  </a>
+                </Reveal>
+
+                <Reveal delay={330}>
+                  <p className="mt-8 flex items-start gap-2.5 text-[0.85rem] leading-relaxed text-grey-brand">
+                    <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
+                    Please send only what is needed to schedule and triage.
+                    Full records can follow through your usual secure channel.
+                  </p>
               </Reveal>
+              </div>
             </div>
 
-            <Reveal delay={160}>
-              <GhlForm
-                instance="referral"
-                formId={REFERRAL_FORM_ID}
-                title="Physician referral form — Rand Eye Institute"
-                formName="Physician Referral"
-                note="Submitted referrals reach our referral coordinator directly. Please do not attach full medical records here."
-                className="lg:p-8"
-              />
-            </Reveal>
+            <div id="referral-form" className="scroll-mt-32">
+              <Reveal delay={160}>
+                <GhlForm
+                  instance="referral"
+                  formId={REFERRAL_FORM_ID}
+                  title="Physician referral form — Rand Eye Institute"
+                  formName="Physician Referral"
+                  note="Submitted referrals reach our referral coordinator directly. Please do not attach full medical records here."
+                  className="lg:p-8"
+                />
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>

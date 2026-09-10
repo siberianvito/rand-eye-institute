@@ -58,7 +58,11 @@
     font-size: 1.0625rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    /* clip, not hidden: hidden makes the body a scroll container, which
+       silently disables position: sticky anywhere in the page. The hidden
+       line stays as the fallback for browsers without clip. */
     overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3 {
