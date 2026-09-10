@@ -20,7 +20,7 @@ export const practice = {
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Rand+Eye+Institute+5+W+Sample+Rd+Deerfield+Beach+FL+33064",
   hours: [
-    { days: "Monday – Friday", time: "9:00 AM – 5:00 PM" },
+    { days: "Monday – Friday", time: "8:00 AM – 5:00 PM" },
     { days: "Saturday – Sunday", time: "Closed" },
   ],
 } as const;
