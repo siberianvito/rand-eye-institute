@@ -114,9 +114,6 @@ export default function ContactPage() {
                 </dt>
                 <dd className="mt-2 leading-snug text-ink">
                   {years.phrase.replace(/^over /, "Over ")} of {practice.tagline.toLowerCase()}
-                  <span className="block text-slate-body">
-                    Over 100 professionals on staff
-                  </span>
                 </dd>
               </div>
             </dl>

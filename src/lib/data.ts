@@ -368,7 +368,7 @@ export const differentiators = [
   {
     title: "Fifty years of judgment.",
     detail:
-      "We have grown from four exam rooms to one of the largest comprehensive eye care facilities in the country, with over 100 professionals on staff.",
+      "We have grown from four exam rooms to one of the largest comprehensive eye care facilities in the country, with every stage of care under one roof.",
   },
 ] as const;
 

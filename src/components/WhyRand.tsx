@@ -81,9 +81,9 @@ export default function WhyRand() {
 
               <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
                 <div className="bg-card px-6 py-6">
-                  <p className="font-display text-4xl text-blue-brand">100+</p>
+                  <p className="font-display text-4xl text-blue-brand">24,000</p>
                   <p className="mt-1 text-[0.9rem] leading-snug text-slate-body">
-                    Eye care professionals under one roof
+                    Square feet dedicated to eye care
                   </p>
                 </div>
                 <div className="bg-card px-6 py-6">

@@ -139,7 +139,7 @@ export default function Nav() {
                 }`}
               >
                 <IconStethoscope className="h-4.5 w-4.5 text-cyan-brand" />
-                Referrals
+                Physician Referrals
               </Link>
 
               <Link
