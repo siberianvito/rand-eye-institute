@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       title="Privacy Policy"
       intro="How this website collects and uses information, and the choices you have. Health information held by the practice is governed separately by our HIPAA Notice of Privacy Practices."
-      updated="September 1, 2026"
+      updated="September 21, 2026"
     >
       <h2>Scope</h2>
       <p>
@@ -63,6 +63,33 @@ export default function PrivacyPolicyPage() {
         an embedded map. These providers may process information on our behalf
         and are expected to protect it. Where a provider handles protected
         health information, a Business Associate Agreement is required.
+      </p>
+
+      <h2>Text messaging and mobile information</h2>
+      <p>
+        If you give us your mobile number and opt in, we may send you text
+        messages about the request you made — a reply from our staff,
+        appointment confirmations and reminders, and follow-up about scheduling
+        your visit. Consent to receive text messages is not a condition of
+        receiving care or of any purchase.
+      </p>
+      <p>
+        You can opt out at any time by replying <strong>STOP</strong>, or reply{" "}
+        <strong>HELP</strong> for help. Message and data rates may apply and
+        message frequency varies. The full terms of our messaging program are in
+        our <Link href="/terms-of-service">Terms of Service</Link>.
+      </p>
+      <p>
+        We treat your mobile number and your messaging consent as confidential:
+      </p>
+      <p>
+        <strong>
+          No mobile information will be shared with third parties/affiliates for
+          marketing/promotional purposes. Information sharing to subcontractors
+          in support services, such as customer service, is permitted. All other
+          use case categories exclude text messaging originator opt-in data and
+          consent; this information will not be shared with any third parties.
+        </strong>
       </p>
 
       <h2>Your choices</h2>

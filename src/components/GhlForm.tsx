@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Script from "next/script";
 import { IconShield } from "./Icons";
 
@@ -54,6 +55,29 @@ export default function GhlForm({
         <IconShield className="mt-0.5 h-4 w-4 shrink-0" />
         {note ??
           "Your information is used only to contact you about your care. Please do not send sensitive medical details through this form."}
+      </p>
+
+      {/* Legal footer for the form — required wherever we collect a phone number. */}
+      <p className="mt-3 px-1 text-[0.78rem] leading-relaxed text-grey-brand">
+        By submitting this form you agree that we may contact you by phone, text
+        or email about your request. Consent to receive text messages is not a
+        condition of receiving care. Message and data rates may apply and
+        message frequency varies. Reply STOP to opt out, or HELP for help. See
+        our{" "}
+        <Link
+          href="/privacy-policy"
+          className="font-medium text-ink underline underline-offset-2 transition-colors duration-200 hover:text-blue-brand cursor-pointer"
+        >
+          Privacy Policy
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="/terms-of-service"
+          className="font-medium text-ink underline underline-offset-2 transition-colors duration-200 hover:text-blue-brand cursor-pointer"
+        >
+          Terms of Service
+        </Link>
+        .
       </p>
 
       {/* Auto-sizes the embedded form to its content */}

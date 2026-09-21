@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
     <LegalPage
       title="Terms of Service"
       intro="The terms that govern your use of this website. By using the site, you agree to them."
-      updated="September 1, 2026"
+      updated="September 21, 2026"
     >
       <h2>No medical advice</h2>
       <p>
@@ -49,6 +49,48 @@ export default function TermsOfServicePage() {
         with you directly. Please give accurate contact details so we can reach
         you.
       </p>
+
+      <h2>Text messaging program</h2>
+      <h3>{practice.name}</h3>
+      <ul>
+        <li>
+          {practice.name} is an ophthalmology practice in{" "}
+          {practice.address.city}, {practice.address.state}. When you opt in to
+          our text messaging program, you can expect to receive messages about
+          the request you made — a reply from our staff, appointment
+          confirmations and reminders, and follow-up about scheduling your
+          visit. Consent to receive text messages is not a condition of
+          receiving care or of any purchase.
+        </li>
+        <li>
+          You can cancel the SMS service at any time. Just text{" "}
+          <strong>&ldquo;STOP&rdquo;</strong> to{" "}
+          <a href={practice.phoneHref}>{practice.phone}</a>. After you send the
+          SMS message &ldquo;STOP&rdquo; to us, we will send you an SMS message
+          to confirm that you have been unsubscribed. After this, you will no
+          longer receive SMS messages from us. If you want to join again, just
+          sign up as you did the first time and we will start sending SMS
+          messages to you again.
+        </li>
+        <li>
+          If you are experiencing issues with the messaging program you can
+          reply with the keyword <strong>HELP</strong> for more assistance, or
+          you can get help directly at{" "}
+          <a href={practice.phoneHref}>{practice.phone}</a>.
+        </li>
+        <li>Carriers are not liable for delayed or undelivered messages.</li>
+        <li>
+          As always, message and data rates may apply for any messages sent to
+          you from us and to us from you. You will receive messages at a
+          frequency that varies with the request you made and the appointments
+          you have scheduled. If you have any questions about your text plan or
+          data plan, it is best to contact your wireless provider.
+        </li>
+        <li>
+          If you have any questions regarding privacy, please read our privacy
+          policy: <Link href="/privacy-policy">Privacy Policy</Link>.
+        </li>
+      </ul>
 
       <h2>Acceptable use</h2>
       <ul>
