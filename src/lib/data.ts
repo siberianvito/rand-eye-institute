@@ -19,9 +19,10 @@ export const practice = {
   },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Rand+Eye+Institute+5+W+Sample+Rd+Deerfield+Beach+FL+33064",
-  /** MySecureHealthData — the portal the practice already uses for records,
-      results and messages. Hosted by the vendor, not by this site. */
-  portalUrl: "https://new.mysecurehealthdata.com/",
+  /** ModMed (Modernizing Medicine) patient portal. This path drops patients
+      straight on the practice-branded patient login; the /ema/ root shows a
+      staff-or-patient chooser first. Vendor-hosted, not part of this site. */
+  portalUrl: "https://randeye.modmedapp.com/patient-portal",
   hours: [
     { days: "Monday – Friday", time: "8:00 AM – 5:00 PM" },
     { days: "Saturday – Sunday", time: "Closed" },
