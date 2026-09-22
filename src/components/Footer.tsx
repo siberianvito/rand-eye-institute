@@ -110,6 +110,16 @@ export default function Footer() {
                   Physician Referrals
                 </Link>
               </li>
+              <li>
+                <a
+                  href={practice.portalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+                >
+                  Patient Portal
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

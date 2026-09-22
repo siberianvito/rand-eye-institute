@@ -128,3 +128,10 @@ export const IconStethoscope = ({ className }: IconProps) => (
     <circle cx="20" cy="10" r="2" />
   </svg>
 );
+
+export const IconUser = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+  </svg>
+);
