@@ -205,6 +205,241 @@ export const blogPosts: BlogPost[] = [
       { label: "The technology we use", href: "/#technology" },
     ],
   },
+  {
+    slug: "dry-eye-that-will-not-go-away",
+    title:
+      "Burning, watering, blurring: what dry eye really is and why drops alone often fail",
+    cardTitle: "Why your eyes burn, water and blur",
+    description:
+      "Dry eye and ocular surface disease explained: why dry eyes water, what meibomian gland dysfunction does, and how we treat it at Rand Eye Institute in Deerfield Beach.",
+    keywords: [
+      "dry eye treatment Deerfield Beach",
+      "ocular surface disease",
+      "meibomian gland dysfunction",
+      "chronic dry eye Florida",
+      "why do my eyes water",
+      "dry eye specialist Broward County",
+    ],
+    date: "2026-09-25",
+    dateLabel: "September 25, 2026",
+    image: "/blog/tear-film.jpg",
+    alt: "Macro image of a water droplet on glass catching cool blue light, used here to illustrate the tear film.",
+    imageCaption: "Illustration: the tear film is thinner than you think",
+    lead: "Here is the part that confuses people. They come in with eyes that water all day and get told they have dry eye. It sounds like a contradiction, and it is actually the clearest clue in the whole conversation.",
+    sections: [
+      {
+        heading: "Watery eyes are often dry eyes",
+        body: [
+          "A healthy tear film is not just water. It has an oily outer layer that keeps it from evaporating, a watery middle layer, and a sticky inner layer that holds the whole thing against the eye. When the oil runs short, the film breaks apart between blinks and the surface of the eye dries out in patches.",
+          "A dry patch is an irritated patch, and an irritated eye calls for backup. The reflex tear glands flood the eye with thin, watery tears that have no oil in them at all. Those tears run down your cheek instead of coating the eye. So you feel wet and gritty at the same time, and the drops you buy at the pharmacy help for twenty minutes.",
+        ],
+      },
+      {
+        heading: "What patients describe",
+        list: [
+          "Burning or grittiness that gets worse through the day",
+          "Vision that blurs, then clears for a moment when you blink hard",
+          "Watering that seems to have nothing to do with emotion or onions",
+          "Contact lenses that used to be comfortable and no longer are",
+          "Eyes that feel worse after screens, driving or a night of air conditioning",
+          "Redness along the lid margin, or crusting in the morning",
+        ],
+      },
+      {
+        heading: "Why South Florida is hard on the ocular surface",
+        body: [
+          "Air conditioning runs most of the year here, and it pulls moisture out of the room and out of your tear film. Ceiling fans blow air straight across the eye all night. Sun, wind off the water, chlorine and salt all add to it.",
+          "Screens matter more than most people expect. Blink rate drops sharply when you concentrate on a monitor or a phone, and an incomplete blink never spreads the oil layer properly. Hours of that, every working day, is a meaningful load on the surface of the eye.",
+        ],
+      },
+      {
+        heading: "Why artificial tears stop working",
+        body: [
+          "Over the counter drops replace the watery part of the tear film. If the problem is the oil layer, or inflammation in the glands that make it, you are topping up a tank that keeps draining. That is why so many patients arrive having tried four different bottles.",
+          "The glands in question sit inside the eyelid margin, and they can become blocked, thickened or inflamed over time. Treating the surface without treating the glands is treating the symptom.",
+        ],
+      },
+      {
+        heading: "What an evaluation involves",
+        body: [
+          "We look at the tear film under magnification, watch how quickly it breaks up after a blink, examine the lid margins and the glands themselves, and check the surface of the cornea and conjunctiva for damage. Sometimes we use dyes that reveal dry spots that are invisible otherwise.",
+          "The point is to find out which part of the system is failing, because the treatment is different depending on the answer.",
+        ],
+      },
+      {
+        heading: "How dry eye is actually treated",
+        body: [
+          "Treatment is usually a sequence rather than a single prescription. Warm compresses and lid hygiene to open and clear the glands. Prescription drops that reduce inflammation rather than just lubricating. Punctal plugs, which are tiny inserts that slow tear drainage so the tears you do make stay on the eye longer. In office procedures that clear the glands directly when they need it.",
+          "Most people get meaningful relief. What we do not do is promise a cure, because dry eye is usually a condition that gets managed well rather than a condition that disappears.",
+        ],
+      },
+      {
+        heading: "One more reason to take it seriously",
+        body: [
+          "If you are considering laser vision correction or cataract surgery, the ocular surface has to be in good shape first. Measurements taken off a dry, irregular surface are unreliable, and unreliable measurements lead to disappointing results. This is why we treat dry eye before we plan surgery, not after.",
+          "If your eyes have been bothering you for months and the drops are not holding, come in and let us find out which layer is the problem.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Is LASIK right for you?", href: "/blog/is-lasik-right-for-you" },
+      {
+        label: "Keratoconus and corneal cross linking",
+        href: "/blog/keratoconus-and-corneal-cross-linking",
+      },
+      { label: "Our procedures", href: "/#procedures" },
+    ],
+  },
+  {
+    slug: "keratoconus-and-corneal-cross-linking",
+    title:
+      "Keratoconus and corneal cross linking: stopping the problem instead of chasing it",
+    cardTitle: "Keratoconus and corneal cross linking",
+    description:
+      "What keratoconus is, the early signs that get missed, and how corneal collagen cross linking is used to halt progression. From the cornea specialists at Rand Eye Institute.",
+    keywords: [
+      "keratoconus treatment Deerfield Beach",
+      "corneal collagen cross linking",
+      "keratoconus symptoms",
+      "cross linking Florida",
+      "irregular astigmatism",
+      "cornea specialist Broward County",
+    ],
+    date: "2026-09-25",
+    dateLabel: "September 25, 2026",
+    image: "/blog/cornea-macro.jpg",
+    alt: "Macro image of the curve of a human cornea lit from the side, used here to illustrate corneal shape.",
+    imageCaption: "Illustration: the cornea does most of the focusing",
+    lead: "Keratoconus is usually caught late, and it is usually caught late for the same reason every time. The vision keeps changing, so everyone assumes the prescription is just unstable, and a new pair of glasses gets made instead of a diagnosis.",
+    sections: [
+      {
+        heading: "What keratoconus is",
+        body: [
+          "The cornea is meant to be a smooth, round dome. In keratoconus the collagen fibers that hold that shape weaken, and the pressure of the eye pushes the cornea outward into a cone. A cone does not focus light evenly, which is why the astigmatism it creates is called irregular. Glasses correct regular astigmatism well. They struggle with this.",
+          "It typically shows up in the late teens and twenties and can keep progressing for years, often at different rates in each eye. There is frequently a family history, and chronic hard eye rubbing is associated with it, which is one reason we ask about allergies.",
+        ],
+      },
+      {
+        heading: "The signs that get missed",
+        list: [
+          "A prescription that changes noticeably more than once a year",
+          "Ghosting or doubling of images in one eye, especially at night",
+          "Glare and streaking around headlights that keeps getting worse",
+          "Contact lenses that will not sit comfortably or keep popping out",
+          "Vision that glasses simply cannot sharpen past a certain point",
+        ],
+      },
+      {
+        heading: "How it is diagnosed",
+        body: [
+          "Corneal topography is the test that settles it. It maps the curvature of the cornea point by point and shows the steepening that an eye chart cannot. We also measure corneal thickness, because thinning tends to accompany the change in shape.",
+          "Topography is also how we catch it in people who came in for something else entirely. More than a few patients have arrived asking about LASIK and left with a keratoconus diagnosis instead, which is a far better outcome than having a laser applied to a cornea that was already weakening.",
+        ],
+      },
+      {
+        heading: "What cross linking does",
+        body: [
+          "Corneal collagen cross linking is the procedure that addresses the underlying problem. Riboflavin, which is vitamin B2, is applied to the cornea and then activated with a controlled ultraviolet light. That reaction creates new bonds between the collagen fibers, stiffening the tissue that had been giving way.",
+          "The goal is to halt progression. That is the honest framing and it is worth being clear about it. Cross linking is not a procedure that hands you sharp vision on its own, and some patients see modest flattening afterward while others simply stay where they are. What it does is stop the cone from getting worse, which protects the vision you still have and can keep you away from a corneal transplant later.",
+          "There are different approaches, including epithelium off techniques and epithelium on techniques such as Epioxa that leave the surface layer of the cornea in place. Which one fits depends on your cornea, and we go through that at the consultation.",
+        ],
+      },
+      {
+        heading: "You will probably still need correction",
+        body: [
+          "After cross linking most patients continue in glasses or specialty contact lenses, and for irregular corneas a scleral or other specialty lens often gives far better vision than glasses can. Cross linking and vision correction are two different jobs. One stabilizes the cornea, the other sharpens what you see through it.",
+        ],
+      },
+      {
+        heading: "Timing is the whole point",
+        body: [
+          "Cross linking protects the cornea you have today. It cannot restore a shape that has already been lost. That is the entire argument for getting an irregular, shifting prescription properly mapped rather than corrected again and hoped about.",
+          "If your prescription keeps moving, or someone in your family has keratoconus, ask for corneal topography. If you are already diagnosed, we can tell you whether your cornea is progressing and whether cross linking is the right step.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Is LASIK right for you?", href: "/blog/is-lasik-right-for-you" },
+      {
+        label: "Why your eyes burn, water and blur",
+        href: "/blog/dry-eye-that-will-not-go-away",
+      },
+      { label: "The technology we use", href: "/#technology" },
+    ],
+  },
+  {
+    slug: "macular-degeneration-and-diabetic-eye-disease",
+    title:
+      "Macular degeneration and diabetic eye disease: why the exam comes before the symptoms",
+    cardTitle: "Macular degeneration and diabetic eye disease",
+    description:
+      "How macular degeneration and diabetic retinopathy damage vision quietly, what retinal injections are actually for, and when to be seen. Medical retina care in Deerfield Beach.",
+    keywords: [
+      "macular degeneration treatment Deerfield Beach",
+      "diabetic retinopathy screening",
+      "retina injections",
+      "wet macular degeneration",
+      "medical retina Broward County",
+      "diabetic eye exam Florida",
+    ],
+    date: "2026-09-25",
+    dateLabel: "September 25, 2026",
+    image: "/blog/retina-vessels.jpg",
+    alt: "Abstract image of fine branching blood vessels glowing against a dark field, used here to illustrate retinal circulation.",
+    imageCaption: "Illustration: the retina is fed by the finest vessels in the body",
+    lead: "The two most common reasons adults lose central vision in this country are macular degeneration and diabetic eye disease. Both do most of their damage before the patient notices anything, which is the single most important thing to understand about them.",
+    sections: [
+      {
+        heading: "What the retina is doing",
+        body: [
+          "The retina lines the back of the eye and converts light into the signal your brain reads as sight. The macula is the small central region that handles detail, faces, reading and the middle of everything you look at. It is supplied by some of the finest blood vessels in the body, and it does not tolerate leaking, swelling or a failing blood supply.",
+        ],
+      },
+      {
+        heading: "Macular degeneration, dry and wet",
+        body: [
+          "Age related macular degeneration comes in two forms. The dry form is far more common and progresses slowly as deposits build under the macula and the tissue thins. The wet form happens when abnormal blood vessels grow under the retina and leak fluid or blood, and it can change vision within days.",
+          "The warning sign patients report most often is distortion. Straight lines start to bend or wave. A door frame bows. Words on a page have a soft smudge sitting in the middle of them. If you cover one eye and the other shows you a bent world, that is not something to watch for a few weeks.",
+        ],
+      },
+      {
+        heading: "Diabetic eye disease is quieter still",
+        body: [
+          "High blood sugar damages the small vessels feeding the retina. They leak, they close off, and the retina responds by growing fragile new vessels that bleed. Swelling in the macula, called diabetic macular edema, is the most common way vision is lost.",
+          "Here is the part that costs people their sight: you can have significant diabetic retinopathy and still read the bottom line of the eye chart. Vision often stays normal until the damage is advanced. This is why every adult with diabetes needs a dilated eye exam on schedule, whether or not anything seems wrong. It is not a formality. It is the only way to catch it while it is still treatable.",
+        ],
+      },
+      {
+        heading: "What injections actually do",
+        body: [
+          "Anti VEGF injections are the mainstay for wet macular degeneration and for diabetic macular edema. They block the signal that drives abnormal vessels to grow and leak, which lets the retina dry out and settle.",
+          "Patients are usually more nervous about the injection than they need to be. The eye is numbed thoroughly first, the injection itself takes moments, and it is done in the office.",
+          "What matters more is the expectation. The main goal of treatment is to preserve the vision you still have and stop the disease from taking more. Many patients do gain some vision back, particularly when swelling comes down, but that is a hoped for bonus rather than a promise, and treatment is usually ongoing rather than a single visit. Catching it earlier is what widens the range of good outcomes.",
+        ],
+      },
+      {
+        heading: "What a retinal evaluation involves",
+        body: [
+          "We dilate the pupils and examine the retina directly, then image it. Optical coherence tomography gives a cross section of the macula and shows fluid and swelling layer by layer, in detail no exam alone can provide. Photographs give us a baseline to compare against at your next visit, which is often how progression is caught early.",
+        ],
+      },
+      {
+        heading: "When to call the same day",
+        body: [
+          "Some retinal symptoms are not appointments to schedule next month. Call us right away, or go to an emergency room, if you have sudden vision loss, a sudden shower of new floaters, flashes of light, or a shadow or curtain moving across your field of vision.",
+          "For everything else, the answer is the same and it is unglamorous. Get the dilated exam. Keep getting it. Vision that is protected early is vision you keep.",
+        ],
+      },
+    ],
+    related: [
+      {
+        label: "When is it time for cataract surgery?",
+        href: "/blog/when-is-it-time-for-cataract-surgery",
+      },
+      { label: "Clinical research at Rand", href: "/#research" },
+      { label: "Meet the physicians", href: "/#physicians" },
+    ],
+  },
 ];
 
 export const getPost = (slug: string) =>
