@@ -1,4 +1,5 @@
 import ClarityReveal from "@/components/ClarityReveal";
+import CrossLinking from "@/components/CrossLinking";
 import CtaBand from "@/components/CtaBand";
 import Doctors from "@/components/Doctors";
 import FAQ from "@/components/FAQ";
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroVideo />
       <Intro />
       <Procedures />
+      <CrossLinking />
       <ClarityReveal />
       <WhyRand />
       <Doctors />

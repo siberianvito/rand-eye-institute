@@ -31,6 +31,89 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "epioxa-epithelium-on-cross-linking",
+    title:
+      "Epioxa: cross linking for keratoconus without removing the surface of the cornea",
+    cardTitle: "Epioxa: cross linking without removing the surface",
+    description:
+      "Epioxa is the first epithelium on corneal cross linking approved by the FDA for keratoconus. How it differs from epi off cross linking, what the trials showed, and who it suits. Rand Eye Institute, Deerfield Beach.",
+    keywords: [
+      "Epioxa",
+      "epithelium on cross linking",
+      "epi on crosslinking Florida",
+      "Epioxa Deerfield Beach",
+      "keratoconus treatment without epithelium removal",
+      "corneal cross linking Broward County",
+    ],
+    date: "2026-09-25",
+    dateLabel: "September 25, 2026",
+    image: "/blog/cornea-macro.jpg",
+    alt: "Macro image of the curve of a human cornea lit from the side, used here to illustrate the corneal surface.",
+    imageCaption: "Illustration: with Epioxa the surface layer stays where it is",
+    lead: "For years the hardest part of recommending cross linking was not the science. Patients accepted that the procedure protects the cornea. What they dreaded was the recovery, because standard cross linking begins by removing the outer skin of the eye. Epioxa changes that starting point.",
+    sections: [
+      {
+        heading: "First, what cross linking is for",
+        body: [
+          "In keratoconus the collagen fibers that hold the cornea in its dome shape weaken, and the cornea bulges into a cone. Vision distorts, the prescription keeps moving, and glasses stop being able to fix it. Cross linking strengthens those fibers so the shape stops slipping. If you want the full picture of the condition itself, we wrote about keratoconus separately.",
+          "The chemistry is the same in every version of the procedure. Riboflavin, which is vitamin B2, is delivered into the cornea and then activated with controlled ultraviolet light. That reaction creates new bonds between collagen fibers and stiffens the tissue.",
+        ],
+      },
+      {
+        heading: "The problem with the traditional approach",
+        body: [
+          "The cornea is covered by a thin protective layer called the epithelium, and it does not let riboflavin pass through easily. The standard solution has been to remove it, which is where the term epi off comes from. The riboflavin soaks in, the light is applied, a bandage contact lens goes on, and the epithelium grows back over the following days.",
+          "It works, and it has protected a great many corneas. It also means real discomfort while the surface heals, blurry vision during that period, and a window where the eye is more exposed to infection and to haze forming in the cornea. For a patient weighing a procedure that mainly prevents future loss, that recovery is often what makes them hesitate, sometimes for years they did not have to spare.",
+        ],
+      },
+      {
+        heading: "What Epioxa does differently",
+        body: [
+          "Epioxa is an epithelium on procedure, known as epi on. The protective surface layer of the cornea is left in place. Instead of removing it, the treatment uses a riboflavin formulation designed to cross that barrier, delivered with supplemental oxygen and then activated with ultraviolet light.",
+          "Oxygen matters more here than it sounds. The cross linking reaction consumes it, and an intact epithelium limits how much reaches the tissue. Enriching the oxygen during treatment is a large part of how this approach gets a meaningful effect without taking the surface off.",
+          "In October 2025 the FDA approved Epioxa, making it the first epithelium on cross linking therapy approved in the United States. It comes from Glaukos, the company behind the epi off system that has been the standard here for years.",
+        ],
+      },
+      {
+        heading: "What the trials actually showed",
+        body: [
+          "Approval rested on two randomized, double masked, multicenter Phase 3 trials, together covering several hundred eyes, each comparing treatment against a sham procedure.",
+          "The measure that mattered was Kmax, the steepest point on the cornea. A cone that keeps steepening is a cornea still getting worse, so flattening or holding that number is the point of the whole exercise. Epioxa met that endpoint against sham. The effect was notably stronger in younger patients, which fits what corneal surgeons see in practice, since keratoconus tends to progress fastest in younger eyes and those are the eyes with the most to protect.",
+        ],
+      },
+      {
+        heading: "The honest limits, and the side effects",
+        body: [
+          "Cross linking of any kind is a stabilizing procedure. It is meant to stop the cornea from getting worse. It is not a procedure that hands back a shape the eye has already lost, and most patients continue in glasses or specialty contact lenses afterward. Anyone who tells you cross linking will sharpen your vision is selling rather than explaining.",
+          "Epioxa has side effects, and they are worth knowing before you decide. The most common is redness of the eye. Others reported include corneal haze, sensitivity to light, eye pain, small defects in the corneal surface, and dry eye. In the trials these were generally mild and temporary.",
+          "Epi on is also not automatically the right choice for every cornea. Thickness, how advanced the cone is, scarring and how fast the condition is moving all factor in, and for some eyes the traditional epi off procedure remains the better decision. That call belongs at an exam, with your topography and your measurements in front of us.",
+        ],
+      },
+      {
+        heading: "Why this matters for getting treated sooner",
+        body: [
+          "The value of cross linking depends almost entirely on timing. It protects the cornea you have on the day of treatment. Every month of progression before that is shape you do not get back, and the far end of untreated keratoconus is a corneal transplant.",
+          "So a version of the procedure that removes the main reason patients postpone it is not a small convenience. Getting treated this year instead of in three years is, for many corneas, the difference that decides how much vision there is to protect.",
+        ],
+      },
+      {
+        heading: "Cross linking at Rand Eye Institute",
+        body: [
+          "Corneal cross linking has been part of what we do at Rand Eye Institute for years, and Dr. Allison Rand performs cross linking here in our own surgical pavilion in Deerfield Beach. Diagnosis, topography, the procedure and your follow up all happen in the same building, with the physician who examined you.",
+          "If your prescription keeps changing, if you have been told you have an irregular cornea, or if you were diagnosed with keratoconus and told to wait and watch, come in and have the cornea mapped. We will tell you whether it is progressing, whether cross linking is indicated, and which approach fits your eye.",
+        ],
+      },
+    ],
+    related: [
+      {
+        label: "Keratoconus explained: the signs that get missed",
+        href: "/blog/keratoconus-and-corneal-cross-linking",
+      },
+      { label: "Is LASIK right for you?", href: "/blog/is-lasik-right-for-you" },
+      { label: "Our procedures", href: "/#procedures" },
+    ],
+  },
+  {
     slug: "when-is-it-time-for-cataract-surgery",
     title:
       "When is it time for cataract surgery? The signs worth paying attention to",
@@ -359,12 +442,15 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     related: [
+      {
+        label: "Epioxa: cross linking without removing the surface",
+        href: "/blog/epioxa-epithelium-on-cross-linking",
+      },
       { label: "Is LASIK right for you?", href: "/blog/is-lasik-right-for-you" },
       {
         label: "Why your eyes burn, water and blur",
         href: "/blog/dry-eye-that-will-not-go-away",
       },
-      { label: "The technology we use", href: "/#technology" },
     ],
   },
   {
