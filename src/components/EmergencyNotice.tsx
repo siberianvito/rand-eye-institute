@@ -1,11 +1,7 @@
 import { IconAlert, IconPhone } from "./Icons";
 import { practice } from "@/lib/data";
 
-/**
- * Nobody should be typing a form message while their retina is detaching.
- * This sits above the form and in the page header so it is read before
- * anyone starts filling anything in.
- */
+/** Sits beside the form so it is read before anyone starts typing. */
 export default function EmergencyNotice({
   className = "",
 }: {
@@ -23,26 +19,17 @@ export default function EmergencyNotice({
       </p>
 
       <p className="mt-3 leading-relaxed text-ink">
-        <strong className="font-semibold">Do not use this form.</strong> If you
-        have sudden vision loss, a sudden shower of floaters or flashes, a
-        shadow or curtain across your vision, severe eye pain, chemical
-        exposure or an eye injury, call the office now and tell us it is
-        urgent.
+        This form is not for emergencies. If you are having an eye emergency,
+        please call us at the number below.
       </p>
 
       <a
         href={practice.phoneHref}
-        className="mt-4 inline-flex items-center gap-2.5 font-sans text-2xl font-bold tracking-tight text-ink tabular-nums transition-colors duration-200 hover:text-blue-brand lg:text-3xl cursor-pointer"
+        className="mt-3 inline-flex items-center gap-2.5 font-sans text-2xl font-bold tracking-tight text-ink tabular-nums transition-colors duration-200 hover:text-blue-brand lg:text-3xl cursor-pointer"
       >
         <IconPhone className="h-5.5 w-5.5 text-cyan-brand" />
         {practice.phone}
       </a>
-
-      <p className="mt-3 text-[0.9rem] leading-relaxed text-slate-body">
-        Outside office hours, or if you cannot reach us, call 911 or go to the
-        nearest emergency room. Messages sent through this website are not
-        monitored around the clock.
-      </p>
     </aside>
   );
 }

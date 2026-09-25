@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Consult from "@/components/Consult";
 import EmergencyNotice from "@/components/EmergencyNotice";
+import GhlForm from "@/components/GhlForm";
+import GoogleReviews from "@/components/GoogleReviews";
 import Reveal from "@/components/Reveal";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin } from "@/components/Icons";
 import { practice, years } from "@/lib/data";
@@ -22,8 +23,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Page header — clears the fixed brand bar + nav strip. */}
-      <section className="relative overflow-hidden border-b border-line bg-linear-to-b from-surface-tint via-surface to-surface pt-44 pb-16 lg:pt-52 lg:pb-20">
+      {/* Header and form share one grid on desktop: the form sits top right,
+          the pitch and the emergency notice run down the left. */}
+      <section className="relative border-b border-line bg-linear-to-b from-surface-tint via-surface to-surface pt-44 pb-16 lg:pt-52 lg:pb-20">
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="iris-a absolute -top-[40%] -right-[10%] h-[56vw] max-h-[760px] w-[56vw] max-w-[760px] rounded-full bg-[radial-gradient(circle,rgba(0,160,224,0.3)_0%,transparent_64%)]" />
           <div className="iris-b absolute -bottom-[46%] -left-[14%] h-[50vw] max-h-[680px] w-[50vw] max-w-[680px] rounded-full bg-[radial-gradient(circle,rgba(46,49,146,0.22)_0%,transparent_66%)]" />
@@ -43,47 +45,79 @@ export default function ContactPage() {
             </nav>
           </Reveal>
 
-          <Reveal delay={80}>
-            <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-normal">
-              Request an
-              <span className="brand-text-gradient italic"> appointment.</span>
-            </h1>
-          </Reveal>
+          <div className="mt-8 grid gap-14 lg:mt-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+            <div>
+              <Reveal delay={80}>
+                <h1 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-normal">
+                  Request an
+                  <span className="brand-text-gradient italic"> appointment.</span>
+                </h1>
+              </Reveal>
 
-          <Reveal delay={150}>
-            <p className="mt-6 max-w-xl text-lg text-slate-body lg:text-xl">
-              Tell us a little about your eyes and we will call you back within
-              one business day to find a time. If you would rather speak to
-              someone now, the number below reaches our office directly.
-            </p>
-          </Reveal>
+              <Reveal delay={150}>
+                <p className="mt-6 text-lg text-slate-body lg:text-xl">
+                  Tell us a little about your eyes and we will call you back
+                  within one business day to find a time. If you would rather
+                  speak to someone now, the number below reaches our office
+                  directly.
+                </p>
+              </Reveal>
 
-          <Reveal delay={220}>
-            <div className="mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center">
-              <a
-                href={practice.phoneHref}
-                className="brand-gradient btn-alive group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4.5 text-base font-semibold whitespace-nowrap sm:px-8 text-white cursor-pointer"
-              >
-                <IconPhone className="h-5 w-5" />
-                {practice.phone}
-              </a>
-              <a
-                href="#request"
-                className="btn-outline-alive inline-flex items-center justify-center gap-2.5 rounded-full border border-line-strong bg-card/80 px-8 py-4.5 text-base font-semibold text-ink backdrop-blur hover:text-blue-brand cursor-pointer"
-              >
-                Send a message
-                <IconArrow className="h-5 w-5" />
-              </a>
+              <Reveal delay={220}>
+                <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+                  <a
+                    href={practice.phoneHref}
+                    className="brand-gradient btn-alive inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4.5 text-base font-semibold whitespace-nowrap text-white sm:px-8 cursor-pointer"
+                  >
+                    <IconPhone className="h-5 w-5" />
+                    {practice.phone}
+                  </a>
+                  {/* Only useful where the form is further down the page. */}
+                  <a
+                    href="#request"
+                    className="btn-outline-alive inline-flex items-center justify-center gap-2.5 rounded-full border border-line-strong bg-card/80 px-8 py-4.5 text-base font-semibold text-ink backdrop-blur hover:text-blue-brand lg:hidden cursor-pointer"
+                  >
+                    Send a message
+                    <IconArrow className="h-5 w-5" />
+                  </a>
+                </div>
+              </Reveal>
+
+              <Reveal delay={270}>
+                <ul className="mt-10 flex flex-col gap-3.5">
+                  {[
+                    "Complete diagnostic mapping of both eyes",
+                    "A written price, with insurance verified up front",
+                    "Interest-free monthly payment plans available",
+                    "You meet the surgeon, not a sales consultant",
+                  ].map((point) => (
+                    <li key={point} className="flex gap-3 text-ink-soft">
+                      <IconCheck className="mt-1 h-4.5 w-4.5 shrink-0 text-cyan-brand" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+
+              <Reveal delay={320}>
+                <EmergencyNotice className="mt-10" />
+              </Reveal>
+
+              <Reveal delay={360}>
+                <GoogleReviews className="mt-5" />
+              </Reveal>
             </div>
-          </Reveal>
 
-          <Reveal delay={260}>
-            <EmergencyNotice className="mt-12 max-w-2xl" />
-          </Reveal>
+            <div id="request" className="scroll-mt-32">
+              <Reveal delay={160}>
+                <GhlForm instance="contact" className="lg:p-8" />
+              </Reveal>
+            </div>
+          </div>
 
           {/* At-a-glance practice details */}
           <Reveal delay={300}>
-            <dl className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
+            <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
               <div className="bg-card/90 px-6 py-6 backdrop-blur">
                 <dt className="flex items-center gap-2 text-[0.78rem] font-semibold tracking-[0.14em] text-grey-brand uppercase">
                   <IconPin className="h-4 w-4 text-cyan-brand" />
@@ -125,8 +159,6 @@ export default function ContactPage() {
           </Reveal>
         </div>
       </section>
-
-      <Consult />
 
       {/* Map */}
       <section className="border-t border-line bg-surface-tint py-16 lg:py-20">

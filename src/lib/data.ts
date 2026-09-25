@@ -19,6 +19,12 @@ export const practice = {
   },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Rand+Eye+Institute+5+W+Sample+Rd+Deerfield+Beach+FL+33064",
+  /** Google rating, shown on the contact page. Null until the practice
+      confirms the live figures, because a star rating is a factual claim and
+      an invented one is both misleading and against Google's guidelines.
+      Fill in as: { rating: 4.8, count: 512, url: "<Google reviews link>" } */
+  google: null as { rating: number; count: number; url: string } | null,
+
   /** ModMed (Modernizing Medicine) patient portal. This path drops patients
       straight on the practice-branded patient login; the /ema/ root shows a
       staff-or-patient chooser first. Vendor-hosted, not part of this site. */
