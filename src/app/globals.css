@@ -412,20 +412,20 @@ html[data-motion="reduced"] .reveal {
   transform: none !important;
 }
 
-/* ---------- Long-form legal copy ---------- */
-.legal-prose {
+/* ---------- Long-form reading: policies and articles ---------- */
+.prose-body {
   color: var(--color-slate-body);
   max-width: 68ch;
 }
 
-.legal-prose h2 {
+.prose-body h2 {
   margin-top: 2.75rem;
   margin-bottom: 0.875rem;
   font-size: 1.75rem;
   color: var(--color-ink);
 }
 
-.legal-prose h3 {
+.prose-body h3 {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   font-family: var(--font-sans);
@@ -435,30 +435,30 @@ html[data-motion="reduced"] .reveal {
   color: var(--color-ink);
 }
 
-.legal-prose p,
-.legal-prose ul,
-.legal-prose ol {
+.prose-body p,
+.prose-body ul,
+.prose-body ol {
   margin-bottom: 1.125rem;
 }
 
-.legal-prose ul,
-.legal-prose ol {
+.prose-body ul,
+.prose-body ol {
   padding-left: 1.35rem;
 }
 
-.legal-prose ul { list-style: disc; }
-.legal-prose ol { list-style: decimal; }
-.legal-prose li { margin-bottom: 0.5rem; }
+.prose-body ul { list-style: disc; }
+.prose-body ol { list-style: decimal; }
+.prose-body li { margin-bottom: 0.5rem; }
 
-.legal-prose a {
+.prose-body a {
   color: var(--color-blue-brand);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.legal-prose a:hover { color: var(--color-indigo-brand); }
+.prose-body a:hover { color: var(--color-indigo-brand); }
 
-.legal-prose strong {
+.prose-body strong {
   color: var(--color-ink);
   font-weight: 600;
 }

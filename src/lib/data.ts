@@ -437,6 +437,7 @@ export const navLinks = [
   { label: "Why Rand", href: "/#why-rand" },
   { label: "Physicians", href: "/#physicians" },
   { label: "Research", href: "/#research" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

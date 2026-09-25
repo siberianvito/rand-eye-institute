@@ -61,7 +61,7 @@ export default function LegalPage({
 
       <section className="bg-surface py-16 lg:py-20">
         <div className="shell">
-          <div className="legal-prose">{children}</div>
+          <div className="prose-body">{children}</div>
 
           <div className="mt-14 max-w-2xl rounded-2xl border border-line bg-card p-7">
             <h2 className="text-2xl">Questions about this page?</h2>
