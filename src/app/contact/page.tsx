@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Consult from "@/components/Consult";
+import EmergencyNotice from "@/components/EmergencyNotice";
 import Reveal from "@/components/Reveal";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin } from "@/components/Icons";
 import { practice, years } from "@/lib/data";
@@ -74,6 +75,10 @@ export default function ContactPage() {
                 <IconArrow className="h-5 w-5" />
               </a>
             </div>
+          </Reveal>
+
+          <Reveal delay={260}>
+            <EmergencyNotice className="mt-12 max-w-2xl" />
           </Reveal>
 
           {/* At-a-glance practice details */}

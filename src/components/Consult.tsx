@@ -1,4 +1,5 @@
 import { practice } from "@/lib/data";
+import EmergencyNotice from "./EmergencyNotice";
 import GhlForm from "./GhlForm";
 import Reveal from "./Reveal";
 import { IconCheck, IconPhone } from "./Icons";
@@ -70,10 +71,16 @@ export default function Consult() {
             </Reveal>
           </div>
 
-          {/* GoHighLevel form */}
-          <Reveal delay={160}>
-            <GhlForm instance="contact" className="lg:p-8" />
-          </Reveal>
+          {/* GoHighLevel form. The emergency notice repeats here because the
+              "Send a message" button jumps straight past the page header. */}
+          <div>
+            <Reveal delay={140}>
+              <EmergencyNotice className="mb-8" />
+            </Reveal>
+            <Reveal delay={160}>
+              <GhlForm instance="contact" className="lg:p-8" />
+            </Reveal>
+          </div>
         </div>
       </div>
 
