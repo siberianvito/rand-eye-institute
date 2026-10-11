@@ -302,6 +302,7 @@ export const blogPosts: BlogPost[] = [
       "chronic dry eye Florida",
       "why do my eyes water",
       "dry eye specialist Broward County",
+      "LipiFlow Deerfield Beach",
     ],
     date: "2026-09-25",
     dateLabel: "September 25, 2026",
@@ -352,7 +353,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How dry eye is actually treated",
         body: [
-          "Treatment is usually a sequence rather than a single prescription. Warm compresses and lid hygiene to open and clear the glands. Prescription drops that reduce inflammation rather than just lubricating. Punctal plugs, which are tiny inserts that slow tear drainage so the tears you do make stay on the eye longer. In office procedures that clear the glands directly when they need it.",
+          "Treatment is usually a sequence rather than a single prescription. Warm compresses and lid hygiene to open and clear the glands. Prescription drops that reduce inflammation rather than just lubricating. Punctal plugs, which are tiny inserts that slow tear drainage so the tears you do make stay on the eye longer. In office treatments such as LipiFlow thermal pulsation, which warms and gently compresses the eyelid glands to clear the blockage directly, when the glands need it.",
           "Most people get meaningful relief. What we do not do is promise a cure, because dry eye is usually a condition that gets managed well rather than a condition that disappears.",
         ],
       },

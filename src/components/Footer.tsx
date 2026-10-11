@@ -48,7 +48,7 @@ export default function Footer() {
               Procedures
             </h2>
             <ul className="mt-5 flex flex-col gap-3 text-[0.95rem]">
-              {services.slice(1, 4).map((p) => (
+              {services.filter((s) => s.group === "procedure").map((p) => (
                 <li key={p.id}>
                   <Link
                     href="/#procedures"
@@ -66,7 +66,7 @@ export default function Footer() {
               Services
             </h2>
             <ul className="mt-5 flex flex-col gap-3 text-[0.95rem]">
-              {[services[0], services[4], services[5]].map((s) => (
+              {services.filter((x) => x.group === "service").map((s) => (
                 <li key={s.name}>
                   <Link
                     href="/#procedures"

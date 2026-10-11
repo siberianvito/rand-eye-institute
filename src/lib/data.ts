@@ -67,6 +67,7 @@ export const facilityLine =
 export const services = [
   {
     id: "comprehensive",
+    group: "service",
     name: "Comprehensive Ophthalmology",
     kicker: "Complete Eye Health",
     summary:
@@ -79,6 +80,7 @@ export const services = [
   },
   {
     id: "cataract",
+    group: "procedure",
     name: "Refractive Cataract Surgery",
     kicker: "Premium Lens Implants",
     summary:
@@ -92,6 +94,7 @@ export const services = [
   },
   {
     id: "lasik",
+    group: "procedure",
     name: "Laser Vision Correction",
     kicker: "Custom No-Flap LASIK",
     summary:
@@ -104,6 +107,7 @@ export const services = [
   },
   {
     id: "cross-linking",
+    group: "procedure",
     name: "Corneal Collagen Crosslinking",
     kicker: "Minimally Invasive",
     summary:
@@ -116,6 +120,7 @@ export const services = [
   },
   {
     id: "dry-eye",
+    group: "service",
     name: "Dry Eye & Ocular Surface Disease",
     kicker: "Ocular Surface",
     summary:
@@ -127,7 +132,22 @@ export const services = [
     ],
   },
   {
+    id: "lipiflow",
+    group: "procedure",
+    name: "LipiFlow® Thermal Pulsation",
+    kicker: "Meibomian Gland Treatment",
+    summary:
+      "Most dry eye is not a shortage of tears but a shortage of oil, from eyelid glands that have become blocked. LipiFlow treats those glands directly, applying controlled warmth to the inner lid and gentle pulsation to the outer to clear them.",
+    points: [
+      "Treats meibomian gland dysfunction at the source",
+      "A single in-office treatment, nothing to remember at home",
+      "Performed after we examine the glands and confirm the blockage",
+      "Used alongside ongoing dry eye care, not instead of it",
+    ],
+  },
+  {
     id: "retina",
+    group: "service",
     name: "Medical Retina & Injections",
     kicker: "Retina",
     summary:

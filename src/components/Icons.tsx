@@ -143,3 +143,11 @@ export const IconAlert = ({ className }: IconProps) => (
     <path d="M12 17h.01" />
   </svg>
 );
+
+export const IconWaves = ({ className }: IconProps) => (
+  <svg {...base(className)}>
+    <path d="M2 7c1.5 0 1.5 1.6 3 1.6S6.5 7 8 7s1.5 1.6 3 1.6S12.5 7 14 7s1.5 1.6 3 1.6S18.5 7 20 7" />
+    <path d="M2 13c1.5 0 1.5 1.6 3 1.6S6.5 13 8 13s1.5 1.6 3 1.6S12.5 13 14 13s1.5 1.6 3 1.6S18.5 13 20 13" />
+    <path d="M2 19c1.5 0 1.5 1.6 3 1.6S6.5 19 8 19s1.5 1.6 3 1.6S12.5 19 14 19s1.5 1.6 3 1.6S18.5 19 20 19" />
+  </svg>
+);

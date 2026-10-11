@@ -2,16 +2,7 @@ import Link from "next/link";
 import { services } from "@/lib/data";
 import EyeDiagram from "./EyeDiagram";
 import Reveal from "./Reveal";
-import {
-  IconArrow,
-  IconCheck,
-  IconDroplet,
-  IconEye,
-  IconPulse,
-  IconScan,
-  IconShield,
-  IconSparkle,
-} from "./Icons";
+import { IconArrow, IconCheck, IconDroplet, IconEye, IconPulse, IconScan, IconShield, IconSparkle, IconWaves } from "./Icons";
 
 const icons = {
   comprehensive: IconEye,
@@ -19,6 +10,7 @@ const icons = {
   lasik: IconSparkle,
   "cross-linking": IconShield,
   "dry-eye": IconDroplet,
+  lipiflow: IconWaves,
   retina: IconPulse,
 } as const;
 
@@ -54,8 +46,14 @@ export default function Procedures() {
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((proc, i) => {
             const Icon = icons[proc.id];
+            // An odd card count would otherwise leave a stray card hanging in
+            // the first column. Widen it at two columns, centre it at three.
+            const isOrphan = i === services.length - 1 && services.length % 2 === 1;
+            const orphan = isOrphan
+              ? `md:col-span-2 ${services.length % 3 === 1 ? "lg:col-span-1 lg:col-start-2" : "lg:col-span-1"}`
+              : "";
             return (
-              <Reveal key={proc.id} delay={i * 110}>
+              <Reveal key={proc.id} delay={i * 110} className={orphan}>
                 <article className="group flex h-full flex-col rounded-3xl border border-line bg-card p-8 shadow-lift transition-all duration-300 hover:-translate-y-1 hover:border-cyan-brand/40 hover:shadow-lift-lg lg:p-9">
                   <div className="brand-gradient grid h-14 w-14 place-items-center rounded-2xl text-white shadow-glow">
                     <Icon className="h-7 w-7" />
