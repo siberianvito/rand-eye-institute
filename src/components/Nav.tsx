@@ -73,20 +73,37 @@ export default function Nav() {
                 </Link>
               </div>
 
-              <a
-                href={practice.phoneHref}
-                className="block shrink-0 text-right transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
-              >
-                <span className="block text-[0.68rem] font-semibold tracking-[0.24em] text-cyan-brand/80 uppercase">
-                  Call us
-                </span>
-                {/* Sans, not the display serif — Cormorant's old-style figures
-                    render the digits at mixed heights and read as fuzzy at this
-                    size on a dark ground. */}
-                <span className="mt-1 block font-sans text-[1.55rem] leading-none font-bold tracking-tight text-white tabular-nums lg:text-[1.9rem]">
-                  {practice.phone}
-                </span>
-              </a>
+              {/* Two lines, side by side so the bar does not grow taller.
+                  The existing-patient number is the practice's long-standing
+                  one and stays secondary to the main line. */}
+              <div className="flex items-start gap-6 lg:gap-9">
+                <a
+                  href={practice.phoneExistingHref}
+                  className="hidden shrink-0 text-right transition-colors duration-200 hover:text-cyan-brand lg:block cursor-pointer"
+                >
+                  <span className="block text-[0.68rem] font-semibold tracking-[0.24em] text-white/55 uppercase">
+                    Existing patients
+                  </span>
+                  <span className="mt-1 block font-sans text-[1.3rem] leading-none font-semibold tracking-tight text-white/80 tabular-nums lg:text-[1.45rem]">
+                    {practice.phoneExisting}
+                  </span>
+                </a>
+
+                <a
+                  href={practice.phoneHref}
+                  className="block shrink-0 text-right transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+                >
+                  <span className="block text-[0.68rem] font-semibold tracking-[0.24em] text-cyan-brand/80 uppercase">
+                    New patients
+                  </span>
+                  {/* Sans, not the display serif — Cormorant's old-style figures
+                      render the digits at mixed heights and read as fuzzy at this
+                      size on a dark ground. */}
+                  <span className="mt-1 block font-sans text-[1.55rem] leading-none font-bold tracking-tight text-white tabular-nums lg:text-[1.9rem]">
+                    {practice.phone}
+                  </span>
+                </a>
+              </div>
             </div>
 
             <button
@@ -255,6 +272,12 @@ export default function Nav() {
             >
               <IconPhone className="h-5 w-5" />
               {practice.phone}
+            </a>
+            <a
+              href={practice.phoneExistingHref}
+              className="flex items-center justify-center gap-2 text-[0.95rem] text-white/70 transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+            >
+              Existing patients: {practice.phoneExisting}
             </a>
           </div>
         </div>

@@ -83,6 +83,18 @@ export default function ContactPage() {
                 </div>
               </Reveal>
 
+              <Reveal delay={240}>
+                <p className="mt-5 text-[0.95rem] text-slate-body">
+                  Already a patient?{" "}
+                  <a
+                    href={practice.phoneExistingHref}
+                    className="font-semibold text-blue-brand underline underline-offset-4 transition-colors duration-200 hover:text-indigo-brand cursor-pointer"
+                  >
+                    Call {practice.phoneExisting}
+                  </a>
+                </p>
+              </Reveal>
+
               <Reveal delay={270}>
                 <ul className="mt-10 flex flex-col gap-3.5">
                   {[

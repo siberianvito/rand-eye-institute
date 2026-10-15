@@ -24,7 +24,24 @@ export default function Footer() {
                 className="inline-flex items-center gap-2.5 text-white transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
               >
                 <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
-                {practice.phone}
+                <span>
+                  {practice.phone}
+                  <span className="block text-[0.78rem] tracking-[0.14em] text-white/45 uppercase">
+                    New patients
+                  </span>
+                </span>
+              </a>
+              <a
+                href={practice.phoneExistingHref}
+                className="inline-flex items-center gap-2.5 text-white transition-colors duration-200 hover:text-cyan-brand cursor-pointer"
+              >
+                <IconPhone className="h-4.5 w-4.5 text-cyan-brand" />
+                <span>
+                  {practice.phoneExisting}
+                  <span className="block text-[0.78rem] tracking-[0.14em] text-white/45 uppercase">
+                    Existing patients
+                  </span>
+                </span>
               </a>
               <a
                 href={practice.mapsUrl}
