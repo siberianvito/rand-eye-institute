@@ -4,10 +4,10 @@ import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { navLinks, practice } from "@/lib/data";
-import { IconClose, IconMenu, IconPhone, IconUser } from "./Icons";
+import { IconClose, IconMenu, IconPhone, IconStethoscope, IconUser } from "./Icons";
 import Wordmark from "./Wordmark";
 
-/** Shared look for the secondary header link. */
+/** The two secondary header links share one look. */
 const UTILITY_PILL =
   "inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-[0.82rem] font-semibold whitespace-nowrap text-white/90 transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand cursor-pointer";
 
@@ -67,6 +67,10 @@ export default function Nav() {
                   <IconUser className="h-4.5 w-4.5 text-cyan-brand" />
                   Patient Portal
                 </a>
+                <Link href="/referrals" className={UTILITY_PILL}>
+                  <IconStethoscope className="h-4.5 w-4.5 text-cyan-brand" />
+                  Physician Referrals
+                </Link>
               </div>
 
               {/* Two lines, side by side so the bar does not grow taller.
@@ -158,6 +162,18 @@ export default function Nav() {
             </a>
 
             <div className="ml-auto flex items-center gap-3 lg:gap-4">
+              {/* Takes over from the brand-bar pill once that bar rolls up, so
+                  only one referral button is ever on screen. */}
+              <Link
+                href="/referrals"
+                className={`hidden items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-[0.88rem] font-semibold whitespace-nowrap text-white/85 transition-colors duration-200 hover:border-cyan-brand hover:text-cyan-brand cursor-pointer ${
+                  scrolled ? "xl:inline-flex" : "xl:hidden"
+                }`}
+              >
+                <IconStethoscope className="h-4.5 w-4.5 text-cyan-brand" />
+                Physician Referrals
+              </Link>
+
               <Link
                 href="/contact"
                 className="brand-gradient btn-alive shrink-0 rounded-full px-4 py-2.5 text-[0.82rem] font-semibold whitespace-nowrap text-white [--sweep-delay:1.6s] sm:px-5 sm:text-[0.9rem] lg:px-6 lg:text-[0.95rem] cursor-pointer"
@@ -235,6 +251,14 @@ export default function Nav() {
               <IconUser className="h-5 w-5 text-cyan-brand" />
               Patient Portal
             </a>
+            <Link
+              href="/referrals"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-4 font-semibold text-white cursor-pointer"
+            >
+              <IconStethoscope className="h-5 w-5 text-cyan-brand" />
+              Physician Referrals
+            </Link>
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
