@@ -39,10 +39,13 @@ export default function Doctors() {
                     sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
                   />
-                  {/* Ties the navy studio backdrop into the brand gradient */}
+                  {/* Ties the navy studio backdrop into the brand gradient.
+                      Stops must ascend: a `to` position below the `via` one
+                      gets clamped up to it, which drew a hard line across the
+                      middle of every portrait. */}
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-linear-to-t from-indigo-brand/70 via-indigo-brand/10 to-transparent to-45%"
+                    className="absolute inset-0 bg-linear-to-t from-indigo-brand/75 from-0% via-indigo-brand/20 via-35% to-transparent to-70%"
                   />
                   <p className="absolute inset-x-0 bottom-0 p-5 font-display text-[1.05rem] leading-snug text-white italic">
                     &ldquo;{doc.quote}&rdquo;
