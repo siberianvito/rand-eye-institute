@@ -7,7 +7,6 @@ import Gallery from "@/components/Gallery";
 import HeroVideo from "@/components/HeroVideo";
 import Intro from "@/components/Intro";
 import Procedures from "@/components/Procedures";
-import Referrals from "@/components/Referrals";
 import Research from "@/components/Research";
 import Technology from "@/components/Technology";
 import Testimonials from "@/components/Testimonials";
@@ -26,7 +25,6 @@ export default function Home() {
       <Gallery />
       <Technology />
       <Research />
-      <Referrals />
       <Testimonials />
       <FAQ />
       <CtaBand />

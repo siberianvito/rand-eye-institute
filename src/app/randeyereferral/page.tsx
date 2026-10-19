@@ -5,15 +5,21 @@ import Reveal from "@/components/Reveal";
 import { IconArrow, IconCheck, IconPhone, IconShield } from "@/components/Icons";
 import { practice, years } from "@/lib/data";
 
+/**
+ * Unlisted page. Nothing on the site links here; the address is handed to
+ * referring offices directly. noindex keeps it out of search results, and it
+ * is deliberately left out of robots.txt, because a Disallow line would both
+ * advertise the path and stop crawlers from ever reading the noindex.
+ */
 export const metadata: Metadata = {
   title: "Physician Referrals",
-  description: `Refer a patient to ${practice.name} in ${practice.address.city}, FL. Send the referral online or call ${practice.phone}.`,
-  alternates: { canonical: "/referrals" },
-  openGraph: {
-    title: "Physician Referrals | Rand Eye Institute",
-    description:
-      "Refer a patient for surgical or medical eye care. Your patient comes back to you.",
-    url: "/referrals",
+  description: `Refer a patient to ${practice.name} in ${practice.address.city}, FL.`,
+  alternates: { canonical: "/randeyereferral" },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false },
   },
 };
 
@@ -45,7 +51,7 @@ export default function ReferralsPage() {
                 href="/"
                 className="transition-colors duration-200 hover:text-blue-brand cursor-pointer"
               >
-                Home
+                {practice.name}
               </Link>
               <span className="mx-2 text-grey-brand">/</span>
               <span className="text-ink">Physician Referrals</span>
