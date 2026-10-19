@@ -118,6 +118,7 @@ export default function ReferralFormPage() {
                 formId={REFERRAL_FORM_ID}
                 title="Physician referral form — Rand Eye Institute"
                 formName="Physician Referral"
+                lockToPage
                 note="Submitted referrals reach our referral coordinator directly. Please do not attach full medical records here."
                 className="lg:p-8"
               />

@@ -18,6 +18,7 @@ export default function GhlForm({
   formName = "Request an Appointment",
   note,
   minHeight = "min-h-[700px]",
+  lockToPage = false,
   className = "",
 }: {
   instance?: string;
@@ -26,6 +27,9 @@ export default function GhlForm({
   formName?: string;
   note?: string;
   minHeight?: string;
+  /** Stops anything inside the hosted form from navigating the page it sits
+      on. Used on the unlisted referral page, which must be a dead end. */
+  lockToPage?: boolean;
   className?: string;
 }) {
   const GHL_FORM_ID = formId;
@@ -49,6 +53,14 @@ export default function GhlForm({
         data-height="700"
         className={`${minHeight} w-full border-0`}
         scrolling="no"
+        /* Every token the form needs to run, minus allow-top-navigation: a
+           link or logo inside the embed cannot pull the parent page away.
+           Popups still escape the sandbox, so new-tab links behave. */
+        sandbox={
+          lockToPage
+            ? "allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals"
+            : undefined
+        }
       />
 
       <p className="mt-4 flex items-start gap-2.5 px-1 text-[0.82rem] leading-relaxed text-grey-brand">
