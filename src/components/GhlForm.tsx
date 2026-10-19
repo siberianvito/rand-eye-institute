@@ -66,6 +66,8 @@ export default function GhlForm({
         our{" "}
         <Link
           href="/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-medium text-ink underline underline-offset-2 transition-colors duration-200 hover:text-blue-brand cursor-pointer"
         >
           Privacy Policy
@@ -73,6 +75,8 @@ export default function GhlForm({
         and{" "}
         <Link
           href="/terms-of-service"
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-medium text-ink underline underline-offset-2 transition-colors duration-200 hover:text-blue-brand cursor-pointer"
         >
           Terms of Service

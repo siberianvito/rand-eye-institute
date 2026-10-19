@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
 import { practice } from "@/lib/data";
-import AccessibilityWidget from "@/components/AccessibilityWidget";
-import Footer from "@/components/Footer";
-import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
-import StickyCall from "@/components/StickyCall";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -128,18 +124,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-blue-brand focus:px-5 focus:py-3 focus:text-white focus:font-semibold"
-        >
-          Skip to main content
-        </a>
         <SmoothScroll />
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
-        <StickyCall />
-        <AccessibilityWidget />
+        {children}
       </body>
     </html>
   );
