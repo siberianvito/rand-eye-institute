@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
+import Script from "next/script";
 import { practice } from "@/lib/data";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
+
+/** Google Ads conversion tag. */
+const GOOGLE_ADS_ID = "AW-18383915407";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -126,6 +130,20 @@ export default function RootLayout({
         />
         <SmoothScroll />
         {children}
+
+        {/* Google Ads (gtag.js). afterInteractive keeps it off the critical
+            path: it loads once the page is usable rather than blocking the
+            first paint. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ADS_ID}');`}
+        </Script>
       </body>
     </html>
   );
