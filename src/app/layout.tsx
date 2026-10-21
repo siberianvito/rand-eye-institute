@@ -1,12 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
 import Script from "next/script";
+import { GOOGLE_ADS_ID } from "@/lib/analytics";
 import { practice } from "@/lib/data";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
-
-/** Google Ads conversion tag. */
-const GOOGLE_ADS_ID = "AW-18383915407";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ConversionEvent from "@/components/ConversionEvent";
 import EmergencyNotice from "@/components/EmergencyNotice";
 import GhlForm from "@/components/GhlForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import Reveal from "@/components/Reveal";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin } from "@/components/Icons";
+import { CONVERSIONS } from "@/lib/analytics";
 import { practice, years } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -23,6 +25,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <ConversionEvent sendTo={CONVERSIONS.contact} />
+
       {/* Header and form share one grid on desktop: the form sits top right,
           the pitch and the emergency notice run down the left. */}
       <section className="relative border-b border-line bg-linear-to-b from-surface-tint via-surface to-surface pt-44 pb-16 lg:pt-52 lg:pb-20">
